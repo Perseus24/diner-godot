@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0nls0dcunalk"]
+
+[ext_resource type="Texture2D" uid="uid://dbgi1qg4guco" path="res://models/Metal.jpg" id="1_ct0a2"]
+
+[resource]
+resource_name = "Metal"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ct0a2")
+emission_enabled = true

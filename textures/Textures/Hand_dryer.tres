@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6lix22onekuv"]
+
+[ext_resource type="Texture2D" uid="uid://gy0ni8snfkvo" path="res://models/Hand_dryer.png" id="1_0vuu7"]
+
+[resource]
+resource_name = "Hand_dryer"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0vuu7")
+emission_enabled = true

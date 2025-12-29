@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://tc08fsf7wd45"]
+
+[ext_resource type="Texture2D" uid="uid://ca6m7v5lvypsl" path="res://models/Plants.png" id="1_u3dqf"]
+
+[resource]
+resource_name = "Plants"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_u3dqf")
+emission_enabled = true

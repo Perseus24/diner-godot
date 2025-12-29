@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bhwe1xa3ida0y"]
+
+[ext_resource type="Texture2D" uid="uid://dgwc3xo8g8e5g" path="res://models/Stove.png" id="1_p8txw"]
+
+[resource]
+resource_name = "Stove"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_p8txw")
+emission_enabled = true

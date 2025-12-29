@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bok5ckmcykt78"]
+
+[ext_resource type="Texture2D" uid="uid://dgx15xph5ood8" path="res://models/Concrete_03.png" id="1_03vqj"]
+
+[resource]
+resource_name = "Concrete_03"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_03vqj")
+emission_enabled = true

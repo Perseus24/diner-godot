@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=4 uid="uid://70w8ecwrhuko"]
+
+[ext_resource type="Texture2D" uid="uid://btchndu4dqm5v" path="res://models3/Wood_03.jpg" id="1_n6tqk"]
+[ext_resource type="Script" uid="uid://3il5hng4sxbf" path="res://spatula_static.gd" id="2_0pwjp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a36e"]
+resource_name = "Wood_03"
+cull_mode = 2
+albedo_texture = ExtResource("1_n6tqk")
+roughness = 0.07647059
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_03lm2"]
+_surfaces = [{
+"aabb": AABB(-0.08826255, -0.02075839, -0.5862274, 0.17652367, 0.03469431, 0.97766495),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABQADAAAAAAACAAUABgAEAAMABQAGAAMABwABAAQABwACAAEABgAHAAQABQACAAgABgAFAAkABQAIAAkABgAJAAoABwAGAAoAAgAHAAsABwAKAAsAAgALAAgACgAJAAwACAAMAAkACwAKAA0ACgAMAA0ACAALAA4ACwANAA4ACAAPAAwACAAOAA8ADQAMABAADwAQAAwADQARAA4ADwAOABEADQAQABEADwARABAA"),
+"name": "Wood_03",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("S6r//wAAAABLqkWbAAAAAEuqRZtbuwAAs1X//wAAAACzVUWbAAAAAEuq//9buwAAs1X//1u7AACzVUWbW7sAAP//RZuS1AAA/////5LUAAAAAP//ktQAAAAARZuS1AAA//9sSj/eAAAAAGxKP94AAAAAAAA/3gAA//8AAD/eAAD//wAA//8AAAAAAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m0wkp"]
+resource_name = "Cube.368"
+_surfaces = [{
+"aabb": AABB(-0.08826255, -0.02075839, -0.5862274, 0.17652367, 0.03469431, 0.97766495),
+"attribute_data": PackedByteArray("7nLcuu5yfrws2n68LNrcuhHofrwR6Ny6Zu3OvWbtBL8s2n68LNrcuhHo3Lrucn687nLcuhHofrxm7c69Zu0Ev73K3Lq9yn68UsJ+vFLC3Lq9ykKqUsJCqlLC//+9yv//Q9O4nsu5uJ5D00qay7lKmlLCQqq9ykKqvcr//1LC///LubieQ9O4nmbtzr3//wS/Zu0Ev8u5SppD00qaQ9PZisu52Ypm7QS//v8Ev2btzr1D0z2dy7k9ncu5uphD07qYQ9NJhcu5SYXLuTS9Q9M0vQ=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABAAGAAUABAAHAAYACAAJAAoACQAIAAsACQALAAwACAAKAA0ADQAKAA4ADQAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAFQAUABgAFQAYABkAGQAYABoAGQAaABsAHAAdAB4AHAAeAB8AHQAcACAAHQAgACEAIgAjACQAJQAmACcAJQAnACgAKQAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMA"),
+"material": SubResource("StandardMaterial3D_1a36e"),
+"name": "Wood_03",
+"primitive": 3,
+"uv_scale": Vector4(1.8147525, 2.185248, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("S6r//wAAaA5LqkWbAABoDkuqRZtbu2IcS6r//1u7Yhz//0WbktS+EP////+S1Msd//9sSj/e9hT//wAAP95gFbNVRZtbu/7Qs1X//1u7/tAAAP//ktTnybNVRZsAAEDcs1X//wAAQNwAAEWbktSZ0gAAbEo/3sC8AAAAAD/ens2zVf//AADi6LNVRZsAAOLoS6pFmwAA4uhLqv//AADi6LNVRZtbu7EUS6pFm1u7sRRLqkWbAAAcF7NVRZsAABwXAABFm5LUKR///0WbktQpHwAAAAA/3tEW//8AAD/e0RZLqv//W7tN67NV//9bu03rs1X//wAA4uhLqv//AADi6P////+S1PLpAAD//5LU8ukAAGxKP97AvAAAAAD//0eXAAAAAD/ens3//wAAP97RFgAAAAA/3tEWAAAAAP//cQD//wAA//9xAP//AAA/3mAV//8AAP//ZQL//2xKP972FAAA//+S1PLp/////5LU8un//2xKP9656wAAbEo/3rnrAABsSj/eRRT//2xKP95FFP//AAD//3EAAAAAAP//cQBBwnGbcRu9vbAVe8ODvK+VbBDPvNW6s4+OsSmRPBmXx95F9OYJmd3FCZNWx5dOcd+NoJfOXVUg6/qYIciERnHgGHXM0jKtGPXmijItzFLmCk3CKu/TkE1C5ooyLTKtGPUxuB3u4ZExOL7BKu7Ukb5BsT3UECtvsb0YdczSzFLmCmE0HhbhaWG0+pghyLlwi/yERnHg1JG+Qb7BKu4W/ozjcpwXfjwZl8fhAETjjrEpkeFpYbRhNB4WzimAG39kzql/ZM6pzimAG3KcF34W/ozj")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_03lm2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qm5nv"]
+size = Vector3(0.100494385, 0.059570313, 0.79663086)
+
+[node name="Spatula" type="Node3D" groups=["spatula"]]
+
+[node name="Cube_223" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.02078569, -0.04732895, -0.23951101)
+mesh = SubResource("ArrayMesh_m0wkp")
+skeleton = NodePath("")
+
+[node name="Spatula_Static" type="StaticBody3D" parent="."]
+script = ExtResource("2_0pwjp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spatula_Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01512146, -0.057128906, -0.32092285)
+shape = SubResource("BoxShape3D_qm5nv")

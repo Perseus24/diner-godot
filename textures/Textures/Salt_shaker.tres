@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2m67wfhdheya"]
+
+[ext_resource type="Texture2D" uid="uid://dxtmw554cjysx" path="res://models/Salt_shaker.png" id="1_3swil"]
+
+[resource]
+resource_name = "Salt_shaker"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_3swil")
+emission_enabled = true

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://buwmqytermusf"]
+
+[ext_resource type="Texture2D" uid="uid://c5fihjvkamrph" path="res://models/Moss.png" id="1_2crnu"]
+
+[resource]
+resource_name = "Moss"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2crnu")
+emission_enabled = true

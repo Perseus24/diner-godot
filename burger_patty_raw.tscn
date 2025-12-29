@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=4 uid="uid://bctwkseybxs0n"]
+
+[ext_resource type="Texture2D" uid="uid://6h7ef2vqm7uf" path="res://models2/Foods_07.jpg" id="1_7ovjf"]
+[ext_resource type="Script" uid="uid://dlyoe07pc3m00" path="res://burger_patty.gd" id="2_xh23j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akje1"]
+resource_name = "Foods_07"
+cull_mode = 2
+albedo_texture = ExtResource("1_7ovjf")
+roughness = 0.07647059
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xh23j"]
+_surfaces = [{
+"aabb": AABB(-0.1760331, -0.02003711, -0.1760331, 0.3520662, 0.023940679, 0.3520662),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABAACAAEAAAAFAAMABQAEAAMAAAACAAYABgACAAcACAAAAAYABgAHAAgACAAFAAAAAgAJAAcACAAHAAkABAAJAAIACAAJAAoABQALAAQADAAIAAoABQAIAAwACgAJAA0ACgANAAwABQAMAA4ADgALAAUADAANAA8ADAAPAA4ACQAPAA0ADgAPAAsACQAEAA8ADwAEAAsA"),
+"name": "Foods_07",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/3///wAAAAD/fwAAAAAAAIHaAAB9JQAAfSX//30lAAB9JQAAfSUAAAAA////fwAAgdr//30lAAD//wAA/38AAP//////fwAAgdoAAIHaAACB2v//gdoAAAAAAAD/fwAA/3//////AAD/fwAA//8AAH0l//+B2gAAfSUAAIHaAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a35op"]
+resource_name = "Raw_meat"
+_surfaces = [{
+"aabb": AABB(-0.1760331, -0.02003711, -0.1760331, 0.3520662, 0.023940679, 0.3520662),
+"attribute_data": PackedByteArray("JTW3lyU1Z5nsPWeZ7D23l+w9t5fsPWeZJTVnmSU1t5clNWeZXixnmew9t5fsPWeZJTVnmSU1t5clNbeXJTVnmV4sZ5leLLeXXixnmSU1Z5kvK4+YGz+PmCU1haIwPJqfGi6anyU1mY4aLoSRMDyEkSU1t5clNWeZ7D1nmV4st5deLGeZJTVnmSU1t5cwPJqfGi6EkRoump8vK4+YJTWFojA8hJEbP4+YJTWZjuw9t5clNWeZJTW3lyU1t5deLGeZXiy3lyU1t5deLGeZXiy3l14st5clNWeZJTW3lyU1t5fsPWeZ7D23lw=="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAIAAkACgALAAwACgAMAA0ADgAPABAAEQASABMAFAAVABYAFgAVABcAFAAWABgAFQAUABkAGQAUABoAFQAZABsAHAAdAB4AHwAgACEAHwAhACIAIwAkACUAJQAkACYAIwAlACcAJAAjACgAKAAjACkAJAAoACoAKwAsAC0ALgAvADAAMQAyADMANAA1ADYANwA4ADkA"),
+"material": SubResource("StandardMaterial3D_akje1"),
+"name": "Foods_07",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 58,
+"vertex_data": PackedByteArray("/3///wAAAAD/fwAAAAAAAIHaAAB9JQAAgdr//30lAACB2v//fSX/z4HaAAB9Jf/P//8AAP9//8///////3//r///AAD/f/+vgdoAAIHa/6+B2v//gdr/j4HaAACB2v+P/38AAP///4//f///////j/9///////+P/38AAP///499JQAAgdr/j30l//+B2gAAfSUAAIHaAAAAAAAA/38AAAAA////f/+///////9//7//f///////v4Ha//+B2v+/fSX//4Ha/7//f///AAD/v30l//99Jf+/gdr//30l/78AAP///38AAAAAAAD/fwAAfSUAAH0lAAB9Jf//fSUAAH0lAAB9JQAA/38AAAAAAAD/f///AAAAAIHaAACB2v8/fSUAAH0l/z99JQAAgdr/PwAAAAD/f/8//38AAP///z+B2gAAfSX/P///AAD/f/8//38AAAAA/z+B2v//fSX/z///AAD/f//P//////9//8///////3//r4HaAACB2v+vgdr//4Ha/6//f///////j30lAACB2v+PfSX//4Ha/499Jf//gdoAAAAAAAD/fwAAAAD///9/AAAAAP///38AAH0lAAB9JQAAfSX//30lAADC6v9/wur/f8Lq/3/C6v9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3///7pM/3+6TP9/ukz/f/7//3/+//9/////f/7//3/+//9/////f/7//3/+//9///9Es///RLP//0Sz//87lf//O5X//zuV//87lQAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f///ukz/f7pM/3+6TP9///9Es///RLP//0Sz")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xh23j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gt6cw"]
+size = Vector3(0.337677, 0.10383606, 0.30995178)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nutm"]
+resource_name = "Foods_07"
+cull_mode = 2
+albedo_texture = ExtResource("1_7ovjf")
+roughness = 0.07647059
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d4irv"]
+_surfaces = [{
+"aabb": AABB(-0.1760331, -0.02003711, -0.1760331, 0.3520662, 0.023940679, 0.3520662),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABAACAAEAAAAFAAMABQAEAAMAAAACAAYABgACAAcACAAAAAYABgAHAAgACAAFAAAAAgAJAAcACAAHAAkABAAJAAIACAAJAAoABQALAAQADAAIAAoABQAIAAwACgAJAA0ACgANAAwABQAMAA4ADgALAAUADAANAA8ADAAPAA4ACQAPAA0ADgAPAAsACQAEAA8ADwAEAAsA"),
+"name": "Foods_07",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/3///wAAAAD/fwAAAAAAAIHaAAB9JQAAfSX//30lAAB9JQAAfSUAAAAA////fwAAgdr//30lAAD//wAA/38AAP//////fwAAgdoAAIHaAACB2v//gdoAAAAAAAD/fwAA/3//////AAD/fwAA//8AAH0l//+B2gAAfSUAAIHaAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gt6cw"]
+resource_name = "Roast_meat"
+_surfaces = [{
+"aabb": AABB(-0.1760331, -0.02003711, -0.1760331, 0.3520662, 0.023940679, 0.3520662),
+"attribute_data": PackedByteArray("ZUpJnmVK1p91UtafdVJJnnVSSZ51UtafZUrWn2VKSZ5lStafVULWn3VSSZ51UtafZUrWn2VKSZ5lSkmeZUrWn1VC1p9VQkmeVULWn2VK1p8+QQ+fjFMPn2VKNqjdUIil7EOIpWVK6JXsQ5eY3VCXmGVKSZ5lStafdVLWn1VCSZ5VQtafZUrWn2VKSZ7dUIil7EOXmOxDiKU+QQ+fZUo2qN1Ql5iMUw+fZUrolXVSSZ5lStafZUpJnmVKSZ5VQtafVUJJnmVKSZ5VQtafVUJJnlVCSZ5lStafZUpJnmVKSZ51UtafdVJJng=="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAIAAkACgALAAwACgAMAA0ADgAPABAAEQASABMAFAAVABYAFgAVABcAFAAWABgAFQAUABkAGQAUABoAFQAZABsAHAAdAB4AHwAgACEAHwAhACIAIwAkACUAJQAkACYAIwAlACcAJAAjACgAKAAjACkAJAAoACoAKwAsAC0ALgAvADAAMQAyADMANAA1ADYANwA4ADkA"),
+"material": SubResource("StandardMaterial3D_0nutm"),
+"name": "Foods_07",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 58,
+"vertex_data": PackedByteArray("/3///wAAAAD/fwAAAAAAAIHaAAB9JQAAgdr//30lAACB2v//fSX/z4HaAAB9Jf/P//8AAP9//8///////3//r///AAD/f/+vgdoAAIHa/6+B2v//gdr/j4HaAACB2v+P/38AAP///4//f///////j/9///////+P/38AAP///499JQAAgdr/j30l//+B2gAAfSUAAIHaAAAAAAAA/38AAAAA////f/+///////9//7//f///////v4Ha//+B2v+/fSX//4Ha/7//f///AAD/v30l//99Jf+/gdr//30l/78AAP///38AAAAAAAD/fwAAfSUAAH0lAAB9Jf//fSUAAH0lAAB9JQAA/38AAAAAAAD/f///AAAAAIHaAACB2v8/fSUAAH0l/z99JQAAgdr/PwAAAAD/f/8//38AAP///z+B2gAAfSX/P///AAD/f/8//38AAAAA/z+B2v//fSX/z///AAD/f//P//////9//8///////3//r4HaAACB2v+vgdr//4Ha/6//f///////j30lAACB2v+PfSX//4Ha/499Jf//gdoAAAAAAAD/fwAAAAD///9/AAAAAP///38AAH0lAAB9JQAAfSX//30lAADC6v9/wur/f8Lq/3/C6v9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3///7pM/3+6TP9/ukz/f/7//3/+//9/////f/7//3/+//9/////f/7//3/+//9///9Es///RLP//0Sz//87lf//O5X//zuV//87lQAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f///ukz/f7pM/3+6TP9///9Es///RLP//0Sz")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_d4irv")
+
+[node name="BurgerPattyRaw" type="Node3D"]
+
+[node name="Raw_meat" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6276524, 0, 0, 0, 0.6276524, 0, 0, 0, 0.6276524, 0, 0, 0)
+mesh = SubResource("ArrayMesh_a35op")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("2_xh23j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001663208, 0.037239075, -0.0018539429)
+shape = SubResource("BoxShape3D_gt6cw")
+
+[node name="Roast_meat" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6276524, 0, 0, 0, 0.6276524, 0, 0, 0, 0.6276524, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_gt6cw")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2128261, 0)
+visible = false
+text = "FLIP"
+font_size = 20

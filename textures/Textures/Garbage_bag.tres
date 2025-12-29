@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b7m2etctvv02y"]
+
+[ext_resource type="Texture2D" uid="uid://dc5u0fdpk5cur" path="res://models/Garbage_bag.png" id="1_kvpck"]
+
+[resource]
+resource_name = "Garbage_bag"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_kvpck")
+emission_enabled = true

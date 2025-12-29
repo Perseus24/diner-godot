@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b88poc585pnjm"]
+
+[ext_resource type="Texture2D" uid="uid://s50t13wf2vaa" path="res://models/Armchair.png" id="1_7p06u"]
+
+[resource]
+resource_name = "Armchair"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_7p06u")
+emission_enabled = true

@@ -1,0 +1,527 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cb2hvrwhcc24i"
+path="res://.godot/imported/DINER.fbx-96e25991b71716e4c2f1d4404822c755.scn"
+
+[deps]
+
+source_file="res://models/DINER.fbx"
+dest_files=["res://.godot/imported/DINER.fbx-96e25991b71716e4c2f1d4404822c755.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=1
+materials/extract_format=0
+materials/extract_path="res://textures/Textures"
+_subresources={
+"materials": {
+"@MATERIAL:51": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/@MATERIAL_51.tres",
+"use_external/path": "res://models/@MATERIAL_51.tres"
+},
+"@MATERIAL:94": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/@MATERIAL_94.tres",
+"use_external/path": "res://models/@MATERIAL_94.tres"
+},
+"@MATERIAL:95": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/@MATERIAL_95.tres",
+"use_external/path": "res://models/@MATERIAL_95.tres"
+},
+"Armchair": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Armchair.tres",
+"use_external/path": "uid://b88poc585pnjm"
+},
+"Asphalt": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Asphalt.tres",
+"use_external/path": "uid://rrtufal1m0bn"
+},
+"Asphalt_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Asphalt_01.tres",
+"use_external/path": "uid://ba2mj7b6662hj"
+},
+"Asphalt_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Asphalt_02.tres",
+"use_external/path": "uid://de73l0gydovle"
+},
+"Breads": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Breads.tres",
+"use_external/path": "uid://bm642dt0c1vfl"
+},
+"Brick": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Brick.tres",
+"use_external/path": "uid://dnf0wacihfv2i"
+},
+"Bush": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Bush.tres",
+"use_external/path": "uid://3034v4mjpsxj"
+},
+"Cans": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Cans.tres",
+"use_external/path": "uid://dn7buixlkvsw8"
+},
+"Coffee_machine": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Coffee_machine.tres",
+"use_external/path": "uid://bi7k71crvcxpu"
+},
+"Concrete_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Concrete_01.tres",
+"use_external/path": "uid://dcesqdppmcuvk"
+},
+"Concrete_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Concrete_02.tres",
+"use_external/path": "uid://d2npgsqid8fgh"
+},
+"Concrete_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Concrete_03.tres",
+"use_external/path": "uid://bok5ckmcykt78"
+},
+"Door": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Door.tres",
+"use_external/path": "uid://b73sntgvns0sp"
+},
+"Door_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Door_01.tres",
+"use_external/path": "uid://qx7hyj38xc7s"
+},
+"Door_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Door_02.tres",
+"use_external/path": "uid://b0lvs0qnpsh82"
+},
+"Dumpster": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Dumpster.tres",
+"use_external/path": "uid://fretpia0t60u"
+},
+"Emissor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Emissor.tres",
+"use_external/path": "uid://bxyfdhlcelsmh"
+},
+"Emissor.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Emissor.001.tres",
+"use_external/path": "uid://r3ltir5ghwdm"
+},
+"Emissor_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Emissor_01.tres",
+"use_external/path": "uid://qy8xotj7an08"
+},
+"Fryer": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Fryer.tres",
+"use_external/path": "uid://cf6kcdm002k4g"
+},
+"Garbage_bag": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Garbage_bag.tres",
+"use_external/path": "uid://b7m2etctvv02y"
+},
+"Glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Glass.tres",
+"use_external/path": "uid://6fmoo6bygqe6"
+},
+"Grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Grass.tres",
+"use_external/path": "uid://brmxjibmlpd73"
+},
+"Grid": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Grid.tres",
+"use_external/path": "uid://dek7mplja6uk0"
+},
+"Grid_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Grid_01.tres",
+"use_external/path": "uid://ydju1tdv6ssn"
+},
+"Hand_dryer": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Hand_dryer.tres",
+"use_external/path": "uid://c6lix22onekuv"
+},
+"Leather": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Leather.tres",
+"use_external/path": "uid://b8lao5gh34dwh"
+},
+"Lights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Lights.tres",
+"use_external/path": "uid://f8s1fpjcjuv4"
+},
+"Lights_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Lights_01.tres",
+"use_external/path": "uid://dnvhkxb5b06ac"
+},
+"Lines": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Lines.tres",
+"use_external/path": "uid://dwkipxa43e5sg"
+},
+"MENU": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/MENU.tres",
+"use_external/path": "uid://oohqbcib0v2q"
+},
+"Marble": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Marble.tres",
+"use_external/path": "uid://26yyu1ifacs0"
+},
+"Marble_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Marble_01.tres",
+"use_external/path": "uid://djoybmhkm6kf8"
+},
+"Metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal.tres",
+"use_external/path": "uid://b0nls0dcunalk"
+},
+"Metal_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_01.tres",
+"use_external/path": "uid://b6dlx8y844fqx"
+},
+"Metal_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_02.tres",
+"use_external/path": "uid://bnlwwi7qoyn63"
+},
+"Metal_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_03.tres",
+"use_external/path": "uid://uetqh8s2slcx"
+},
+"Metal_05": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_05.tres",
+"use_external/path": "uid://dbn7228qp3x0"
+},
+"Metal_06": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_06.tres",
+"use_external/path": "uid://0ufhe6l1h3g7"
+},
+"Metal_07": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_07.tres",
+"use_external/path": "uid://61mfl4oegont"
+},
+"Metal_08": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_08.tres",
+"use_external/path": "uid://ch7yxulsmiy81"
+},
+"Metal_10": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Metal_10.tres",
+"use_external/path": "uid://cr3cof2xrxath"
+},
+"Moss": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Moss.tres",
+"use_external/path": "uid://buwmqytermusf"
+},
+"Mustard": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Mustard.tres",
+"use_external/path": "uid://5yqvmy147hkq"
+},
+"Napkin_Ring": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Napkin_Ring.tres",
+"use_external/path": "uid://dmwlrcel4kxdc"
+},
+"Oven": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Oven.tres",
+"use_external/path": "uid://b7w68opiimhxd"
+},
+"POPCORN": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/POPCORN.tres",
+"use_external/path": "uid://dqdp4lo5rn2jw"
+},
+"Paper_dispenser": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Paper_dispenser.tres",
+"use_external/path": "uid://dyrrwe2cif3kg"
+},
+"Paperboard": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Paperboard.tres",
+"use_external/path": "uid://siebqcgujpvi"
+},
+"Plants": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plants.tres",
+"use_external/path": "uid://tc08fsf7wd45"
+},
+"Plants_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plants_01.tres",
+"use_external/path": "uid://dinvakbqkj7um"
+},
+"Plants_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plants_02.tres",
+"use_external/path": "uid://bf3wfxhw0i07r"
+},
+"Plaste": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plaste.tres",
+"use_external/path": "uid://biyohrmtqswts"
+},
+"Plastic": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plastic.tres",
+"use_external/path": "uid://e8lvtohmg0uu"
+},
+"Plastic_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Plastic_01.tres",
+"use_external/path": "uid://bxsprpahu646b"
+},
+"R_V": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/R_V.tres",
+"use_external/path": "uid://dk6tj4retjuvw"
+},
+"Refreshment": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refreshment.tres",
+"use_external/path": "uid://cx7hkr75o6jds"
+},
+"Refreshment_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refreshment_01.tres",
+"use_external/path": "uid://6jyuab78nedh"
+},
+"Refreshment_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refreshment_02.tres",
+"use_external/path": "uid://dqps6dxnxkn4w"
+},
+"Refreshment_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refreshment_03.tres",
+"use_external/path": "uid://3mx6atvydmi3"
+},
+"Refrigerator": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refrigerator.tres",
+"use_external/path": "uid://hnmq8uekjnai"
+},
+"Refrigerator_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Refrigerator_01.tres",
+"use_external/path": "uid://dqorpn56jd4as"
+},
+"Roof_tiles": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Roof_tiles.tres",
+"use_external/path": "uid://25x06pmseh3u"
+},
+"Salt_shaker": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Salt_shaker.tres",
+"use_external/path": "uid://2m67wfhdheya"
+},
+"Sauce": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Sauce.tres",
+"use_external/path": "uid://df0m3vp16vcte"
+},
+"Sewer": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Sewer.tres",
+"use_external/path": "uid://bsiefp2xb7kqd"
+},
+"Soap_dispenser": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Soap_dispenser.tres",
+"use_external/path": "uid://uv5kmyb7swev"
+},
+"Soft_drink_dispenser": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Soft_drink_dispenser.tres",
+"use_external/path": "uid://dhqjk4fxkhmy2"
+},
+"Stove": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Stove.tres",
+"use_external/path": "uid://bhwe1xa3ida0y"
+},
+"Tiles": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Tiles.tres",
+"use_external/path": "uid://d8fal7vfl2qg"
+},
+"Tiles_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Tiles_01.tres",
+"use_external/path": "uid://4yf6sfktuiet"
+},
+"Tiles_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Tiles_02.tres",
+"use_external/path": "uid://dt4ibmm6gqito"
+},
+"Toilet": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Toilet.tres",
+"use_external/path": "uid://c8lhc2a6gjkfm"
+},
+"Toilet_sing": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Toilet_sing.tres",
+"use_external/path": "uid://cduhmx6x4eghm"
+},
+"Trash": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Trash.tres",
+"use_external/path": "uid://b6svmcflv5cvd"
+},
+"Trash_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Trash_01.tres",
+"use_external/path": "uid://d0bf5ula37146"
+},
+"Tree": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Tree.tres",
+"use_external/path": "uid://wyyvgc3sc6xa"
+},
+"Tree_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Tree_01.tres",
+"use_external/path": "uid://cultrdiewye7p"
+},
+"Trees_Background": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Trees_Background.tres",
+"use_external/path": "uid://d07t82i3rn3qo"
+},
+"V": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/V.tres",
+"use_external/path": "uid://cm3y177w7wri0"
+},
+"Vending_machine": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Vending_machine.tres",
+"use_external/path": "uid://dxveyjnrrimoj"
+},
+"Wire": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wire.tres",
+"use_external/path": "uid://bgy5108o4yks1"
+},
+"Wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood.tres",
+"use_external/path": "uid://dvgfanxv1lx01"
+},
+"Wood_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_01.tres",
+"use_external/path": "uid://cp86qq4rks1kx"
+},
+"Wood_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_02.tres",
+"use_external/path": "uid://cadvfkoappnuj"
+},
+"Wood_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_03.tres",
+"use_external/path": "uid://i6y4lmbgt0ci"
+},
+"Wood_04": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_04.tres",
+"use_external/path": "uid://ddoypcr2l1rvh"
+},
+"Wood_05": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_05.tres",
+"use_external/path": "uid://crtn3oxp76iyf"
+},
+"Wood_06": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/Wood_06.tres",
+"use_external/path": "uid://lroppp1v0b28"
+},
+"guard_rails": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/guard_rails.tres",
+"use_external/path": "uid://c02n8fx363iho"
+},
+"ketchup": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/ketchup.tres",
+"use_external/path": "uid://glpv28wn7s5k"
+},
+"lemon": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/lemon.tres",
+"use_external/path": "uid://bmbxhc0lgtdd"
+},
+"transparent": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://textures/Textures/transparent.tres",
+"use_external/path": "uid://c5rt2tsagbd2p"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bgy5108o4yks1"]
+
+[ext_resource type="Texture2D" uid="uid://cm8vhnf6oq3lo" path="res://models/Wire.png" id="1_dd5tn"]
+
+[resource]
+resource_name = "Wire"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_dd5tn")
+emission_enabled = true

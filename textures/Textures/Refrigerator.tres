@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://hnmq8uekjnai"]
+
+[ext_resource type="Texture2D" uid="uid://vuwx1r6nc7bx" path="res://models/Refrigerator.png" id="1_puu53"]
+
+[resource]
+resource_name = "Refrigerator"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_puu53")
+emission_enabled = true

@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnsa68vfnk2g"]
+
+[ext_resource type="Texture2D" uid="uid://bgp2ksnivgscs" path="res://background/ocean_background.png" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bbn02mg4qxefh" path="res://diner.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cmhgbqcwv6kb6" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://x8dgqhp86f4n" path="res://background/138cab47cb7f1e46b682582a3b451b4a.jpg" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cfel4vc5fbc0y" path="res://diner_complete.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://7swveqk47xu3" path="res://pointer.gd" id="6_7mycd"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h2yge"]
+panorama = ExtResource("1_h2yge")
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("PanoramaSkyMaterial_h2yge")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(109.058105, 1, 82.13289)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lquwl"]
+size = Vector2(15, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_texture = ExtResource("4_1bvp3")
+
+[node name="Main" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 45, 0)
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.604004)
+
+[node name="DINER" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23409653, -0.052261353, 0.17536163)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DINER"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DINER/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8010101, 0, 3.2432785)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.3374795e-13, 3.059797e-06, -70, 70, -3.059797e-06, -2.3716923e-20, -3.059797e-06, -70, -3.059797e-06, 7.885704, 538.557, 2067.6821)
+visible = false
+mesh = SubResource("PlaneMesh_lquwl")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mycd")
+
+[node name="DinerComplete" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pointer" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_7mycd")

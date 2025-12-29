@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dk6tj4retjuvw"]
+
+[ext_resource type="Texture2D" uid="uid://bnmcjes8tgfhj" path="res://models/R_V.png" id="1_qer81"]
+
+[resource]
+resource_name = "R_V"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_qer81")
+emission_enabled = true

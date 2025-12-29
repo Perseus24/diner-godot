@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyrrwe2cif3kg"]
+
+[ext_resource type="Texture2D" uid="uid://syx17ixaqfij" path="res://models/Paper_dispenser.png" id="1_1rfdl"]
+
+[resource]
+resource_name = "Paper_dispenser"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_1rfdl")
+emission_enabled = true

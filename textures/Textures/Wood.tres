@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvgfanxv1lx01"]
+
+[ext_resource type="Texture2D" uid="uid://x2wt6dpm0cto" path="res://models/Wood.jpg" id="1_pmls1"]
+
+[resource]
+resource_name = "Wood"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_pmls1")
+emission_enabled = true

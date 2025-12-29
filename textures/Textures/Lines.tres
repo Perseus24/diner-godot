@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwkipxa43e5sg"]
+
+[ext_resource type="Texture2D" uid="uid://ces1fa66o1blc" path="res://models/Lines.png" id="1_r4fxr"]
+
+[resource]
+resource_name = "Lines"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_r4fxr")
+emission_enabled = true

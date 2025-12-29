@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cx7hkr75o6jds"]
+
+[ext_resource type="Texture2D" uid="uid://cr8c4miefp1sx" path="res://models/Refreshment.png" id="1_0kp78"]
+
+[resource]
+resource_name = "Refreshment"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0kp78")
+emission_enabled = true

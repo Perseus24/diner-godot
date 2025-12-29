@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://wnbyjr8npqua"]
+
+[ext_resource type="PackedScene" uid="uid://dupstkem7cpy8" path="res://models/burger_bun_with_sesame_seeds.glb" id="1_bp5qj"]
+[ext_resource type="Script" uid="uid://bfbxmcjnrogq3" path="res://burger_bun.gd" id="2_xmbo2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmbo2"]
+size = Vector3(0.18933105, 0.08518982, 0.15979004)
+
+[node name="BurgerBun" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_bp5qj")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("2_xmbo2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022583008, 0.01058197, -0.0077637956)
+shape = SubResource("BoxShape3D_xmbo2")
+
+[node name="Label3D" type="Label3D" parent="."]
+text = "Cooked"

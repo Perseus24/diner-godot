@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ydju1tdv6ssn"]
+
+[ext_resource type="Texture2D" uid="uid://pbkb12chun2p" path="res://models/Grid_01.png" id="1_2a01f"]
+
+[resource]
+resource_name = "Grid_01"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2a01f")
+emission_enabled = true

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://26yyu1ifacs0"]
+
+[ext_resource type="Texture2D" uid="uid://baobg3us7k3el" path="res://models/Marble.jpg" id="1_ovdds"]
+
+[resource]
+resource_name = "Marble"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ovdds")
+emission_enabled = true
