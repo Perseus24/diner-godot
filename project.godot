@@ -21,6 +21,9 @@ player=""
 spatula=""
 entrance_path=""
 entrance_door=""
+sofa=""
+seat=""
+Table1_Sofa_Right_path_entrance=""
 
 [input]
 

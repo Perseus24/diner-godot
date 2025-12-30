@@ -107,7 +107,7 @@ loop = false
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/EntranceToTable1_Sofa_Right"]
-transform = Transform3D(0.99781984, -0.0008971844, 0.065837584, -5.8207078e-11, 0.9998971, 0.013625667, -0.06584411, -0.013596182, 0.997721, 0.8625638, -0.077888906, 3.089888)
+transform = Transform3D(0.9978204, -0.0008971849, 0.065837614, -5.820711e-11, 0.99989766, 0.013625675, -0.06584414, -0.013596189, 0.99772155, 0.8625638, -0.077888906, 3.089888)
 loop = false
 
 [node name="RestaurantManager" type="Node3D" parent="."]

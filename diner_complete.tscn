@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://cfel4vc5fbc0y"]
+[gd_scene load_steps=132 format=4 uid="uid://cfel4vc5fbc0y"]
 
 [ext_resource type="PackedScene" uid="uid://bbn02mg4qxefh" path="res://diner.tscn" id="1_hucql"]
 [ext_resource type="Texture2D" uid="uid://6h7ef2vqm7uf" path="res://models2/Foods_07.jpg" id="2_a78dl"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://mfiui6uba0cq" path="res://textures/Textures/Paperboard.jpg" id="25_pxx8v"]
 [ext_resource type="Script" uid="uid://dsnkdnptm45nd" path="res://place_mat_static.gd" id="27_pt1qc"]
 [ext_resource type="PackedScene" uid="uid://ma2w6ac0ypy2" path="res://models/cash_register.glb" id="28_ngd7d"]
+[ext_resource type="Script" uid="uid://b2r44s40mixak" path="res://scripts/interactables/seat.gd" id="29_leq7e"]
 
 [sub_resource type="Animation" id="Animation_g823t"]
 resource_name = "RESET"
@@ -1653,6 +1654,9 @@ albedo_texture = ExtResource("25_pxx8v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_7l1fp"]
 size = Vector3(0.4255371, 0.0234375, 0.49658203)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngd7d"]
+size = Vector3(1.3155518, 1.1990967, 1.2514648)
+
 [node name="DinerComplete" type="Node3D"]
 
 [node name="DINER" parent="." instance=ExtResource("1_hucql")]
@@ -1993,3 +1997,20 @@ shape = SubResource("BoxShape3D_7l1fp")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.9390857, 1.2235107, -4.24684)
 
 [node name="Table1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.390849, 0, 5.900915)
+
+[node name="Sofa_Right" type="Node3D" parent="Table1" groups=["sofa"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0499308, 0, 0.18469667)
+
+[node name="Seat_Left" type="Node3D" parent="Table1/Sofa_Right" groups=["seat"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1850822, 0, 0.8642969)
+script = ExtResource("29_leq7e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table1/Sofa_Right/Seat_Left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table1/Sofa_Right/Seat_Left/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15777588, 0.09954834, -0.12573242)
+shape = SubResource("BoxShape3D_ngd7d")
+
+[node name="Marker3D" type="Marker3D" parent="Table1/Sofa_Right/Seat_Left"]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.84721375, -0.08048782, -0.092681885)

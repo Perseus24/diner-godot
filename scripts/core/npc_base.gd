@@ -4,6 +4,7 @@ enum State {
 	SPAWNED,
 	WALKING_TO_ENTRANCE,
 	OPENING_ENTRANCE_DOOR,
+	WAITING_FOR_DOOR,
 	LOOKING_FOR_CHAIR,
 	WALKING_TO_CHAIR,
 	SITTING_DOWN,
@@ -63,6 +64,8 @@ var personality: Dictionary = {}
 var favorite_food: String = ""
 var order_data: Dictionary = {}
 
+var chosen_seat_to = null
+
 @onready var camera: Camera3D = $Camera3D
 @onready var animation_player: AnimationPlayer = $Male_Casual/AnimationPlayer
 @onready var interaction_ray: RayCast3D 
@@ -104,15 +107,18 @@ func _physics_process(delta: float) -> void:
 			
 		State.OPENING_ENTRANCE_DOOR:
 			process_opening_door(delta)
+			
+		State.WAITING_FOR_DOOR:
+			pass
 			#
-		#State.LOOKING_FOR_CHAIR:
-			#process_looking_for_chair(delta)
+		State.LOOKING_FOR_CHAIR:
+			process_looking_for_chair(delta)
 			#
-		#State.WALKING_TO_CHAIR:
-			#process_walking_to_chair(delta)
+		State.WALKING_TO_CHAIR:
+			process_walking_to_chair(delta)
 			#
-		#State.SITTING_DOWN:
-			#process_sitting_down(delta)
+		State.SITTING_DOWN:
+			process_sitting_down(delta)
 			#
 		#State.READING_MENU:
 			#process_reading_menu(delta)
@@ -163,10 +169,8 @@ func change_state(new_state):
 func follow_current_path(delta):
 	if !current_path_follow:
 		return
-	
 	# Move progress forward
 	current_path_follow.progress += walking_speed * delta
-	
 	# Update character position
 	global_position = current_path_follow.global_position
 	
@@ -210,42 +214,72 @@ func process_opening_door(delta):
 	if current_interactable and current_interactable.has_method("interact"):
 		current_interactable.interact()
 		print("[NPC] ", character_first_name, " opened the door")
-		
-		change_state(State.LOOKING_FOR_CHAIR)
 		# Wait for door animation
+		change_state(State.WAITING_FOR_DOOR)
+		
 		await get_tree().create_timer(1.0).timeout
 		
 		current_interactable = null
 		current_path_follow = null
 		
-#func process_looking_for_chair(delta):
-	## Get all chairs
-	#var chairs = get_tree().get_nodes_in_group("chairs")
-	#var available_chairs = []
-	#
-	## Filter for empty chairs
-	#for chair in chairs:
-		#if chair.has_method("is_occupied") and !chair.is_occupied():
-			#available_chairs.append(chair)
-	#
-	#if available_chairs.size() > 0:
-		#var chosen_chair = available_chairs[randi() % available_chairs.size()]
-		#
-		## Find path to this chair
-		#var chair_path = find_path_to_chair(chosen_chair)
-		#if chair_path:
-			#current_path_follow = chair_path.get_node("PathFollow3D")
-			#current_path_follow.progress = 0.0
-			#print("[NPC] ", character_first_name, " found a seat")
-			#change_state(State.WALKING_TO_CHAIR)
-	#else:
-		## No chairs available - wait or leave
-		#print("[NPC] ", character_first_name, " can't find a seat!")
-		#await get_tree().create_timer(5.0).timeout
-		## Try again or leave frustrated
-		#change_state(State.WALKING_TO_EXIT)
-		#
+		change_state(State.LOOKING_FOR_CHAIR)
+		
+		
+func process_looking_for_chair(delta):
+	# Get all chairs
+	var seats = get_tree().get_nodes_in_group("seat")
+	var available_seats = []
 	
+	# Filter for empty seats
+	for chair in seats:
+		if chair.has_method("is_occupied") and !chair.is_occupied():
+			available_seats.append(chair)
+	if available_seats.size() > 0:
+		var chosen_seat = available_seats[randi() % available_seats.size()]
+		
+		# Find path to this chair
+		var seat_path = find_path_to_chair(chosen_seat)
+		if seat_path:
+			current_path_follow = seat_path.get_node("PathFollow3D")
+			current_path_follow.progress = 0.0
+			print("[NPC] ", character_first_name, " found a seat")
+			
+			chosen_seat_to = chosen_seat
+			change_state(State.WALKING_TO_CHAIR)
+	else:
+		# No chairs available - wait or leave
+		print("[NPC] ", character_first_name, " can't find a seat!")
+		await get_tree().create_timer(5.0).timeout
+		# Try again or leave frustrated
+		change_state(State.WALKING_TO_EXIT)
+		
+func process_walking_to_chair(delta):
+	
+	if current_path_follow:
+		animation_player.play("HumanArmature|Man_Walk")
+		follow_current_path(delta)
+		if current_path_follow.progress_ratio >= 1:
+			print("[NPC] ", character_first_name, " reached seat")
+			animation_player.stop()
+			current_path_follow = null
+			change_state(State.SITTING_DOWN)
+		
+func process_sitting_down(delta):
+	var target_seat = chosen_seat_to
+	var sit_marker = target_seat.get_sit_position()
+	
+	global_position = sit_marker
+	global_rotation.y = deg_to_rad(90)
+	
+	animation_player.play("HumanArmature|Man_Sitting")
+	
+func find_path_to_chair(seat):
+	var seat_position_name = seat.name # Seat Left
+	var sofa_name = seat.get_parent().name # Sofa_Right
+	var table_name = seat.get_parent().get_parent().name # Table1
+	
+	if current_state == State.LOOKING_FOR_CHAIR:
+		return get_tree().get_first_node_in_group("Table1_Sofa_Right_path_entrance")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
