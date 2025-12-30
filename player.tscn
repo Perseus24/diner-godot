@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmhgbqcwv6kb6"]
+[gd_scene load_steps=4 format=3 uid="uid://cmhgbqcwv6kb6"]
 
 [ext_resource type="Script" uid="uid://c0eyh37vu8v4n" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b8yqqutmedhs3" path="res://scripts/interactables/interaction_component.gd" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18037736, 0)
+collision_mask = 3
 script = ExtResource("1_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 current = true
 
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05054784, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="InteractionComponent" type="Node3D" parent="."]
+script = ExtResource("2_onrkg")

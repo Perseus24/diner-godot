@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Interactable
 @onready var bun_scene = preload("res://burger_bun.tscn")
 @onready var patty_scene = preload("res://burger_patty_raw.tscn")
 
@@ -9,9 +9,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	update_interaction_text()
 	pass
 	
-func interact():
+func interact(interactor=null):
 	print("putting down")
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node("Camera3D")
@@ -41,6 +42,11 @@ func interact():
 		
 		patty.get_node("StaticBody3D").cook()
 		raw_patty_in_hand.queue_free()
+		
+	super.interact(interactor)
+
 	
+func update_interaction_text():
+	interaction_text = "Start Stove"
 	
 	

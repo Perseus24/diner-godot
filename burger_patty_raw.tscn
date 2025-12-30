@@ -90,6 +90,7 @@ mesh = SubResource("ArrayMesh_a35op")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
 script = ExtResource("2_xh23j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

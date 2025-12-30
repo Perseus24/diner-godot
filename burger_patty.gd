@@ -1,14 +1,14 @@
-extends StaticBody3D
-const PlayerItems = preload("res://utility/item_manager.gd")
+extends Interactable
+const PlayerItems = preload("res://scripts/item_manager.gd")
 @onready var patty_scene = preload("res://burger_patty_raw.tscn")
 
 var is_cooked_half = false
 var is_cooked_full = false
-
 var is_cooking = false
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	update_interaction_text()
+	pass 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +23,7 @@ func cook():
 	is_cooked_half = true
 	
 	
-func interact(): #flip
+func interact(interactor=null): #flip
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node("Camera3D")
 	var spatula = camera.get_node_or_null("Cube_223")
@@ -46,6 +46,8 @@ func interact(): #flip
 	$"../Label3D".visible = true
 	$"../Label3D".text = "Cooked"
 	
+	super.interact(interactor)
+	
 func get_patty():
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node("Camera3D")
@@ -57,9 +59,9 @@ func get_patty():
 	camera.get_node("Cube_223").queue_free()
 	var spatula = get_tree().get_first_node_in_group("spatula")
 	if spatula:
-		print("hello?")
 		spatula.get_node_or_null("Cube_223").visible = true
 	get_parent().queue_free()
 	
-	
+func update_interaction_text():
+	interaction_text = "Burger Patty"
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=4 uid="uid://cfel4vc5fbc0y"]
+[gd_scene load_steps=130 format=4 uid="uid://cfel4vc5fbc0y"]
 
 [ext_resource type="PackedScene" uid="uid://bbn02mg4qxefh" path="res://diner.tscn" id="1_hucql"]
 [ext_resource type="Texture2D" uid="uid://6h7ef2vqm7uf" path="res://models2/Foods_07.jpg" id="2_a78dl"]
@@ -28,8 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://mfiui6uba0cq" path="res://textures/Textures/Paperboard.jpg" id="25_pxx8v"]
 [ext_resource type="Script" uid="uid://dsnkdnptm45nd" path="res://place_mat_static.gd" id="27_pt1qc"]
 [ext_resource type="PackedScene" uid="uid://ma2w6ac0ypy2" path="res://models/cash_register.glb" id="28_ngd7d"]
-[ext_resource type="PackedScene" uid="uid://q4truq6u0r3y" path="res://character_01.tscn" id="29_leq7e"]
-[ext_resource type="Script" uid="uid://42ssqo58y0" path="res://character_01.gd" id="29_o6lji"]
 
 [sub_resource type="Animation" id="Animation_g823t"]
 resource_name = "RESET"
@@ -1655,16 +1653,6 @@ albedo_texture = ExtResource("25_pxx8v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_7l1fp"]
 size = Vector3(0.4255371, 0.0234375, 0.49658203)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b1slh"]
-size = Vector3(1, 2.9672241, 1)
-
-[sub_resource type="Curve3D" id="Curve3D_o6lji"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.9454384, -0.11802071, -1.8527813, 0, 0, 0, 0, 0, 0, -1.9122019, -0.23831806, -6.593136, 0, 0, 0, 0, 0, 0, -1.8864985, -0.2822467, -14.288354, 0, 0, 0, 0, 0, 0, -0.34047437, -0.0020691985, -20.468672, 0, 0, 0, 0, 0, 0, -0.4192078, -0.056788445, -22.973515, 0, 0, 0, 0, 0, 0, -0.054680586, -0.09058893, -25.120668, 0, 0, 0, 0, 0, 0, 1.3567953, 0.10610902, -26.900503, 0, 0, 0, 0, 0, 0, 0.880723, 0.06601998, -27.36189),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 8
-
 [node name="DinerComplete" type="Node3D"]
 
 [node name="DINER" parent="." instance=ExtResource("1_hucql")]
@@ -1684,7 +1672,8 @@ mesh = SubResource("ArrayMesh_leq7e")
 skeleton = NodePath("")
 surface_material_override/1 = ExtResource("3_d1fqm")
 
-[node name="Entrance_Door_Static" type="StaticBody3D" parent="Entrance_Door"]
+[node name="Entrance_Door_Static" type="StaticBody3D" parent="Entrance_Door" groups=["entrance_door"]]
+collision_layer = 2
 script = ExtResource("8_g823t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance_Door/Entrance_Door_Static"]
@@ -1711,6 +1700,7 @@ libraries = {
 }
 
 [node name="Kitchen_Door_Static" type="StaticBody3D" parent="Kitchen_Door"]
+collision_layer = 2
 script = ExtResource("11_r0inq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen_Door/Kitchen_Door_Static"]
@@ -1745,6 +1735,7 @@ skeleton = NodePath("")
 
 [node name="Refrigerator_Door_Top_Static" type="StaticBody3D" parent="Refrigerator/Refrigerator/Door_Top"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06856537, 0.2919755, 0.16001892)
+collision_layer = 2
 script = ExtResource("14_no4ar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Refrigerator/Refrigerator/Door_Top/Refrigerator_Door_Top_Static"]
@@ -1842,6 +1833,7 @@ mesh = SubResource("ArrayMesh_txrk2")
 skeleton = NodePath("")
 
 [node name="Burger_Meat_Raw_Static" type="StaticBody3D" parent="Refrigerator/Refrigerator/Contents/Burger Meat"]
+collision_layer = 2
 script = ExtResource("17_wstdp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Refrigerator/Refrigerator/Contents/Burger Meat/Burger_Meat_Raw_Static"]
@@ -1858,6 +1850,7 @@ skeleton = NodePath("")
 
 [node name="Bread_Container" type="StaticBody3D" parent="Table_Metal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2190566, -0.07982314, -0.035894394)
+collision_layer = 2
 script = ExtResource("14_c068c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table_Metal/Bread_Container"]
@@ -1902,6 +1895,7 @@ skeleton = NodePath("")
 [node name="Stove_1_Button_Static" type="StaticBody3D" parent="Stove_Front"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.096052, 1.0424671, -6.5110297)
 visible = false
+collision_layer = 2
 script = ExtResource("16_c068c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stove_Front/Stove_1_Button_Static"]
@@ -1910,6 +1904,7 @@ shape = SubResource("BoxShape3D_1w2h2")
 
 [node name="Stove_2_Button_Static" type="StaticBody3D" parent="Stove_Front"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73215663, 1.0424671, -6.5110297)
+collision_layer = 2
 script = ExtResource("21_wstdp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stove_Front/Stove_2_Button_Static"]
@@ -1932,6 +1927,7 @@ mesh = SubResource("ArrayMesh_akje1")
 skeleton = NodePath("")
 
 [node name="Spatula_Static" type="StaticBody3D" parent="Spatula"]
+collision_layer = 2
 script = ExtResource("23_xr78n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spatula/Spatula_Static"]
@@ -1969,6 +1965,7 @@ mesh = SubResource("ArrayMesh_0pkwk")
 skeleton = NodePath("")
 
 [node name="Plate_Static" type="StaticBody3D" parent="Preparation_Table/Plate_Medium"]
+collision_layer = 2
 script = ExtResource("24_pxx8v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Preparation_Table/Plate_Medium/Plate_Static"]
@@ -1985,6 +1982,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ug4ds")
 
 [node name="Place_Mat_Static" type="StaticBody3D" parent="Preparation_Table/Place_Mat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24, 1.214, -7.163)
+collision_layer = 2
 script = ExtResource("27_pt1qc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Preparation_Table/Place_Mat/Place_Mat_Static"]
@@ -1994,26 +1992,4 @@ shape = SubResource("BoxShape3D_7l1fp")
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("28_ngd7d")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.9390857, 1.2235107, -4.24684)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.5722604, 0, -0.82007194, 0, 1, 0, 0.82007194, 0, 0.5722604, -22.40799, 2.3841858e-07, 19.865345)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Node3D"]
-transform = Transform3D(0.98599625, 0, 0.16676879, 0, 1, 0, -0.16676879, 0, 0.98599625, -0.080031395, 0.0025365353, 0.11468887)
-script = ExtResource("29_o6lji")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98361206, 0)
-shape = SubResource("BoxShape3D_b1slh")
-
-[node name="Male_Casual" parent="Node3D/CharacterBody3D" instance=ExtResource("29_leq7e")]
-transform = Transform3D(-0.5, 0, -4.4703484e-08, 0, 0.5, 0, 4.4703484e-08, 0, -0.5, -0.076236725, 0, -0.09158707)
-
-[node name="Camera3D" type="Camera3D" parent="Node3D/CharacterBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -0.051909447, 2.1592062, -0.3249855)
-
-[node name="Path3D" type="Path3D" parent="Node3D"]
-curve = SubResource("Curve3D_o6lji")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Node3D/Path3D"]
-transform = Transform3D(0.9999737, 0.0001778642, -0.0070089563, 1.4551889e-11, 0.9996782, 0.025368454, 0.007011212, -0.025367875, 0.99965197, -1.9454384, -0.11802071, -1.8527813)
-loop = false
+[node name="Table1" type="Node3D" parent="."]

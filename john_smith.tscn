@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://wak56n5sirvw"]
+
+[ext_resource type="Script" uid="uid://bvxs1gy02muhl" path="res://scripts/core/npc_base.gd" id="1_ary0i"]
+[ext_resource type="PackedScene" uid="uid://bhqxgs7uicetu" path="res://characters/FBX/Male_Casual.fbx" id="1_ppyse"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppyse"]
+size = Vector3(1, 4.676697, 1)
+
+[node name="JohnSmith" type="CharacterBody3D"]
+script = ExtResource("1_ary0i")
+
+[node name="Male_Casual" parent="." instance=ExtResource("1_ppyse")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7332282, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7252712, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3802795, 0)
+shape = SubResource("BoxShape3D_ppyse")

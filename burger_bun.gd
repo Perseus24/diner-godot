@@ -1,12 +1,13 @@
-extends StaticBody3D
+extends Interactable
 
-const PlayerItems = preload("res://utility/item_manager.gd")
+const PlayerItems = preload("res://scripts/item_manager.gd")
 @onready var bun_scene = preload("res://burger_bun.tscn")
 
 var is_cooked = false
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	update_interaction_text()
+	pass 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +19,7 @@ func cook():
 	$"../Label3D".visible = true
 	is_cooked = true
 	
-func interact():
+func interact(interactor=null):
 	var is_burger_bun_cooked = $"../Label3D".visible #check if the bun is cooked
 	if is_burger_bun_cooked:
 		PlayerItems.attach_item_to_player(bun_scene, Vector3(0.3, -0.3, -0.6), 'Sketchfab_Scene')
@@ -28,3 +29,7 @@ func interact():
 			display_bun.queue_free()
 		get_parent().queue_free()
 		
+	super.interact(interactor)
+		
+func update_interaction_text():
+	interaction_text = "Pick up"

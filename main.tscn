@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnsa68vfnk2g"]
+[gd_scene load_steps=15 format=3 uid="uid://bnsa68vfnk2g"]
 
 [ext_resource type="Texture2D" uid="uid://bgp2ksnivgscs" path="res://background/ocean_background.png" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bbn02mg4qxefh" path="res://diner.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://x8dgqhp86f4n" path="res://background/138cab47cb7f1e46b682582a3b451b4a.jpg" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cfel4vc5fbc0y" path="res://diner_complete.tscn" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://7swveqk47xu3" path="res://pointer.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://b7887lgeayvql" path="res://scripts/managers/restaurant_manager.gd" id="7_272bh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h2yge"]
 panorama = ExtResource("1_h2yge")
@@ -25,6 +26,13 @@ size = Vector2(15, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_texture = ExtResource("4_1bvp3")
+
+[sub_resource type="Curve3D" id="Curve3D_7mycd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.7238579, -0.12479234, -0.54540443, 0, 0, 0, 0, 0, 0, 2.8530254, -0.23577261, -1.5717354, 0, 0, 0, 0, 0, 0, 5.105999, -0.30311537, -2.7872238, 0, 0, 0, 0, 0, 0, 7.963032, -0.2072773, -5.128454, 0, 0, 0, 0, 0, 0, 13.938147, -0.24515021, -7.549637, 0, 0, 0, 0, 0, 0, 17.682476, -0.26880634, -9.486723, 0, 0, 0, 0, 0, 0, 19.023705, -0.22582972, -10.285692, 0, 0, 0, 0, 0, 0, 18.388752, -0.003652811, -12.546659, 0, 0, 0, 0, 0, 0, 20.094006, -0.065276444, -14.155135, 0, 0, 0, 0, 0, 0, 22.591787, -0.09241271, -14.233131, 0, 0, 0, 0, 0, 0, 22.632814, -0.0890978, -15.126242),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
 
 [node name="Main" type="Node"]
 
@@ -77,3 +85,16 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_7mycd")
+
+[node name="Paths" type="Node3D" parent="."]
+
+[node name="OutsideToEntrance" type="Path3D" parent="Paths" groups=["entrance_path"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.867277, 0, 19.733551)
+curve = SubResource("Curve3D_7mycd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/OutsideToEntrance"]
+transform = Transform3D(0.43421933, 0.042249463, -0.89981544, 0, 0.99889916, 0.04690179, 0.9008068, -0.02036567, 0.43374148, 0.7238579, -0.12479234, -0.54540443)
+loop = false
+
+[node name="RestaurantManager" type="Node3D" parent="."]
+script = ExtResource("7_272bh")

@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Interactable
 
 @onready var plate_scene = preload("res://plate.tscn")
 @onready var burger_plain_scene = preload("res://burger_plain.tscn")
@@ -6,16 +6,15 @@ var is_plate_placed = false
 var is_patty_placed = false
 var is_bun_placed = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	update_interaction_text()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func interact():
+func interact(interactor=null):
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node('Camera3D')
 	
@@ -43,6 +42,7 @@ func interact():
 		patty.rotation = Vector3.ZERO
 		
 	make_burger()
+	super.interact(interactor)
 	
 		
 func make_burger():
@@ -57,6 +57,7 @@ func make_burger():
 	get_node("Sketchfab_Scene").queue_free()
 	get_node("Roast_meat").queue_free()
 	
-	
+func update_interaction_text():
+	interaction_text = "Placemat"
 	
 	

@@ -1,17 +1,19 @@
-extends StaticBody3D
+extends Interactable
 
 @onready var spatula_scene = preload("res://spatula.tscn")
-var is_picked_up = false
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
+const PlayerItems = preload("res://scripts/item_manager.gd")
+
+var is_picked_up = false
+
+func _ready() -> void:
+	update_interaction_text()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func interact():
+func interact(interactor=null):
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node('Camera3D')
 	
@@ -23,6 +25,7 @@ func interact():
 		is_picked_up = false
 	else:	
 		is_picked_up = true
+		
 		var spatula = spatula_scene.instantiate()
 		get_tree().current_scene.add_child(spatula)
 		
@@ -37,3 +40,8 @@ func interact():
 		$"../Cube_223".visible = false
 		
 		visible = false
+		
+	super.interact(interactor)
+		
+func update_interaction_text():
+	interaction_text = "Spatula"
