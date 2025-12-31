@@ -1,14 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://wak56n5sirvw"]
+[gd_scene load_steps=4 format=3 uid="uid://wak56n5sirvw"]
 
 [ext_resource type="Script" uid="uid://bvxs1gy02muhl" path="res://scripts/core/npc_base.gd" id="1_ary0i"]
 [ext_resource type="PackedScene" uid="uid://bhqxgs7uicetu" path="res://characters/FBX/Male_Casual.fbx" id="1_ppyse"]
-[ext_resource type="Script" uid="uid://n37vhkrgmghh" path="res://scripts/interactables/interactable_base.gd" id="3_lx0d6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ppyse"]
 size = Vector3(1, 4.676697, 1)
 
 [node name="JohnSmith" type="CharacterBody3D"]
-collision_layer = 2
 script = ExtResource("1_ary0i")
 
 [node name="Male_Casual" parent="." instance=ExtResource("1_ppyse")]
@@ -23,6 +21,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7252712, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3802795, 0)
 shape = SubResource("BoxShape3D_ppyse")
-
-[node name="InteractableComponent" type="Node3D" parent="."]
-script = ExtResource("3_lx0d6")

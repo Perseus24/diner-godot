@@ -21,6 +21,9 @@ enum State {
 	LEAVING,
 	RANDOM_EVENTS
 }
+const PlayerItems = preload("res://scripts/item_manager.gd")
+
+@onready var ticket_scene = preload("res://ticket.tscn")
 
 # SIGNALS
 
@@ -65,6 +68,8 @@ var favorite_food: String = ""
 var order_data: Dictionary = {}
 
 var chosen_seat_to = null
+var is_sitting = false
+var has_placed_order = false
 
 @onready var camera: Camera3D = $Camera3D
 @onready var animation_player: AnimationPlayer = $Male_Casual/AnimationPlayer
@@ -120,14 +125,14 @@ func _physics_process(delta: float) -> void:
 		State.SITTING_DOWN:
 			process_sitting_down(delta)
 			#
-		#State.READING_MENU:
-			#process_reading_menu(delta)
+		State.READING_MENU:
+			process_reading_menu()
 			#
-		#State.WAITING_FOR_WAITER:
-			#process_waiting_for_waiter(delta)
+		State.WAITING_FOR_WAITER:
+			process_waiting_for_waiter(delta)
 		#
-		#State.PLACING_ORDER:
-			#process_placing_order(delta)
+		State.PLACING_ORDER:
+			process_placing_order(delta)
 			#
 		#State.WAITING_FOR_FOOD:
 			#process_waiting_for_food(delta)
@@ -224,7 +229,6 @@ func process_opening_door(delta):
 		
 		change_state(State.LOOKING_FOR_CHAIR)
 		
-		
 func process_looking_for_chair(delta):
 	# Get all chairs
 	var seats = get_tree().get_nodes_in_group("seat")
@@ -254,7 +258,6 @@ func process_looking_for_chair(delta):
 		change_state(State.WALKING_TO_EXIT)
 		
 func process_walking_to_chair(delta):
-	
 	if current_path_follow:
 		animation_player.play("HumanArmature|Man_Walk")
 		follow_current_path(delta)
@@ -265,6 +268,7 @@ func process_walking_to_chair(delta):
 			change_state(State.SITTING_DOWN)
 		
 func process_sitting_down(delta):
+	
 	var target_seat = chosen_seat_to
 	var sit_marker = target_seat.get_sit_position()
 	
@@ -272,6 +276,46 @@ func process_sitting_down(delta):
 	global_rotation.y = deg_to_rad(90)
 	
 	animation_player.play("HumanArmature|Man_Sitting")
+	is_sitting = true
+	
+	# Get animation length
+	var anim = animation_player.get_animation("HumanArmature|Man_Sitting")
+	await animation_player.animation_finished
+	if is_sitting:
+		animation_player.seek(0.6, true)
+		
+	change_state(State.READING_MENU)
+	
+func process_reading_menu():
+	print("[NPC] ", character_first_name, " reading the menu")
+	await get_tree().create_timer(menu_reading_time).timeout
+	var label_ready_to_order = chosen_seat_to.get_node_or_null("Label3D")
+	if label_ready_to_order:
+		label_ready_to_order.visible = true
+	change_state(State.WAITING_FOR_WAITER)
+	
+func process_waiting_for_waiter(delta):
+	print("[NPC] ", character_first_name, " is waiting for waiter")
+	
+func process_placing_order(delta):
+	if has_placed_order:
+		return
+	has_placed_order = true
+	print("[NPC] ", character_first_name, " is placing order")
+	var player = get_tree().get_first_node_in_group("player")
+	var camera = player.get_node("Camera3D")
+	var ticket = ticket_scene.instantiate()
+	
+	if ticket:
+		var seat_position_name = chosen_seat_to.name # Seat Left
+		var sofa_name = chosen_seat_to.get_parent().name # Sofa_Right
+		var table_name = chosen_seat_to.get_parent().get_parent().name # Table_1
+		var temp_number = sofa_name + "_" + seat_position_name
+		
+		ticket.get_node("TableNumber").text = "Table " + str(table_name.split("_")[1]) + " Seat " + str(determine_table_number(temp_number)) 
+		PlayerItems.attach_node_to_player(ticket, Vector3(0.996, -0.48, -1.252), 2, -11.5, 0)
+		
+		
 	
 func find_path_to_chair(seat):
 	var seat_position_name = seat.name # Seat Left
@@ -281,6 +325,17 @@ func find_path_to_chair(seat):
 	if current_state == State.LOOKING_FOR_CHAIR:
 		return get_tree().get_first_node_in_group("Table1_Sofa_Right_path_entrance")
 
+func determine_table_number(position):
+	match position:
+		"Sofa_Left_Seat_Right":
+			return 1
+		"Sofa_Left_Seat_Left":
+			return 2
+		"Sofa_Right_Seat_Right":
+			return 3
+		"Sofa_Right_Seat_Left":
+			return 4
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

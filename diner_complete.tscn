@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://cfel4vc5fbc0y"]
+[gd_scene load_steps=140 format=4 uid="uid://cfel4vc5fbc0y"]
 
 [ext_resource type="PackedScene" uid="uid://bbn02mg4qxefh" path="res://diner.tscn" id="1_hucql"]
 [ext_resource type="Texture2D" uid="uid://6h7ef2vqm7uf" path="res://models2/Foods_07.jpg" id="2_a78dl"]
@@ -29,6 +29,9 @@
 [ext_resource type="Script" uid="uid://dsnkdnptm45nd" path="res://place_mat_static.gd" id="27_pt1qc"]
 [ext_resource type="PackedScene" uid="uid://ma2w6ac0ypy2" path="res://models/cash_register.glb" id="28_ngd7d"]
 [ext_resource type="Script" uid="uid://b2r44s40mixak" path="res://scripts/interactables/seat.gd" id="29_leq7e"]
+[ext_resource type="Texture2D" uid="uid://bv7sfm00bxqg7" path="res://models2/Paintings.jpg" id="30_b1slh"]
+[ext_resource type="Texture2D" uid="uid://ciaecgehe4p46" path="res://models2/Wood_02.jpg" id="31_03yd1"]
+[ext_resource type="Script" uid="uid://dnqxbmeiqxd01" path="res://ticket_board_static.gd" id="32_03yd1"]
 
 [sub_resource type="Animation" id="Animation_g823t"]
 resource_name = "RESET"
@@ -1655,7 +1658,76 @@ albedo_texture = ExtResource("25_pxx8v")
 size = Vector3(0.4255371, 0.0234375, 0.49658203)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngd7d"]
-size = Vector3(1.3155518, 1.1990967, 1.2514648)
+size = Vector3(2.3012085, 2.6367493, 1.2514648)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh4cq"]
+resource_name = "Paintings"
+cull_mode = 2
+albedo_texture = ExtResource("30_b1slh")
+roughness = 0.07647059
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0tc3"]
+resource_name = "Wood_02"
+cull_mode = 2
+albedo_texture = ExtResource("31_03yd1")
+roughness = 0.07647059
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p77o5"]
+_surfaces = [{
+"aabb": AABB(-1.340325, -0.4983195, -0.02155572, 2.68065, 0.996639, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAACAAMA"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAAAAAAAP//AAAAAAAA/////wAAAAA=")
+}, {
+"aabb": AABB(-1.480955, -0.615882, -0.07549285, 2.96191, 1.231764, 0.11420904),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABQADAAAAAAACAAUABgAEAAMABQAGAAMABwABAAQABwACAAEABgAHAAQABQACAAgABgAFAAkABQAIAAkABwAGAAoABgAJAAoAAgAHAAsAAgALAAgABwAKAAsACQAMAAoACwAKAAwACQANAAwACwAMAA4ACAALAA4ACQAPAA0ACAAOAA8ACQAIAA8A"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAA//8AAAAAAAAAAAAA////////AAD//wAA//8AAAAA//8AAAAA/////wAAAAD//wAAAAAAAJIFDwoAAAAAkgXv9QAAAABs+u/1AAAAAGz6DwoAAAAA1/OQ5+Z4AAAnDJDn5ngAANfzbhjmeAAAJwxuGOZ4AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7l1fp"]
+resource_name = "Paintings"
+_surfaces = [{
+"aabb": AABB(-1.340325, -0.4983195, -0.02155572, 2.68065, 0.996639, 1e-05),
+"attribute_data": PackedByteArray("vKpIALyqVyv//Vcr//1IAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAACAAMA"),
+"material": SubResource("StandardMaterial3D_eh4cq"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAAAAAAAP//AAAAAAAA/////wAAAAD///9/////f////3////9/")
+}, {
+"aabb": AABB(-1.480955, -0.615882, -0.07549285, 2.96191, 1.231764, 0.11420904),
+"attribute_data": PackedByteArray("r7jqgK+4bbyCvW28gr3qgE2x5HBNsf//WbPh/IK96oCCvW28r7htvK+46oD//+qA//9tvNGCbbzRguqAgr3+/4K95HCvuORwr7j+/4K95HCCvf7/r7j+/6+45HAO+Ra6DvlBg9b1mIZc5f7/XOXkcFDjAXTRguqA0YJtvIuFFrqLhUGD//9tvP//6oBF/UGDRf0WuhGnAXQRp+H8/akz+f2pr3dQ4wF0ZOCvd2TgM/lQ4+H8i4VBg4uFFrrDiL+2TbHkcFmz4fxZswF0DvkWutb1mIbW9b+2XOX+/1DjAXRQ4+H8i4VBg8OIv7bDiJiG"),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAIAAkABwAJAAoACwAMAA0ACwANAA4ADwAQABEADwARABIAEwAUABUAEwAVABYAFwAYABkAGgAbABwAHQAeAB8AHQAfACAAIQAiACMAIQAjACQAJQAmACcAJQAnACgAKQAqACsAKQArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsA"),
+"material": SubResource("StandardMaterial3D_w0tc3"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(2.165784, 2.5998545, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAA//8AAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAP//AAAAAAAAbPoPCgAAAAD/////AAD/v///AAAAAP+///8AAP///7//////////v////////wCA//8AAP//AIAAAAAA//8AgAAA/////wCA//8AAAAAqioAAAAAAACqKgAAAAD//6oq//8AAP//qioAAP//AABU1f////8AAFTV////////VNUAAP////9U1Wz6DwoAAAAAbPrv9QAAAADX85Dn5ngAAP////8AAAAAAAD//wAAAACSBe/1AAAAAAAA//8AAAAAAAAAAAAAAACSBQ8KAAAAAJIF7/UAAAAA//8AAAAAAAD/////AAAAAGz67/UAAAAAbPoPCgAAAACSBQ8KAADnEmz6DwoAAOcS1/NuGOZ45xInDG4Y5njnEpIF7/UAAOcSJwyQ5+Z45xLX85Dn5njnEmz67/UAAOcSkgXv9QAAAACSBQ8KAAAAACcMbhjmeAAAAAAAAAAAAABs+g8KAAAAAJIFDwoAAAAAbPoPCgAAAADX85Dn5ngAANfzbhjmeAAA/////wAAAACSBe/1AAAAAGz67/UAAAAAkgXv9QAAAAAnDG4Y5ngAACcMkOfmeAAA/z//f/8//3//P/9//z//f/+//7//v/+//7//v/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///VFVUVVRVVFVUVVRVVFVUVVTVqipU1aoqVNWqKlTVqir+/+We/v/lnv7/5Z7/v/+//7//v/+//7/+//9//v//f/7//3/+//9//v//f/7//3/+//9//v//f5u2m7abtpu2m7abtpu2m7ZjSWNJY0ljSWNJY0ljSWNJGeH/fxnh/38Z4f9//7/+v/+//r//v/6//v/lnv7/5Z7+/+We/7//v/+//7//v/+/GeH/fxnh/38Z4f9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_p77o5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1slh"]
+size = Vector3(0.065216064, 1, 2.1996765)
 
 [node name="DinerComplete" type="Node3D"]
 
@@ -1996,21 +2068,43 @@ shape = SubResource("BoxShape3D_7l1fp")
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("28_ngd7d")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.9390857, 1.2235107, -4.24684)
 
-[node name="Table1" type="Node3D" parent="."]
+[node name="Table_1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.390849, 0, 5.900915)
 
-[node name="Sofa_Right" type="Node3D" parent="Table1" groups=["sofa"]]
+[node name="Sofa_Right" type="Node3D" parent="Table_1" groups=["sofa"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0499308, 0, 0.18469667)
 
-[node name="Seat_Left" type="Node3D" parent="Table1/Sofa_Right" groups=["seat"]]
+[node name="Seat_Left" type="Node3D" parent="Table_1/Sofa_Right" groups=["seat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1850822, 0, 0.8642969)
 script = ExtResource("29_leq7e")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Table1/Sofa_Right/Seat_Left"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Table_1/Sofa_Right/Seat_Left"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table1/Sofa_Right/Seat_Left/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15777588, 0.09954834, -0.12573242)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table_1/Sofa_Right/Seat_Left/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65060425, 0.81837463, -0.12573242)
 shape = SubResource("BoxShape3D_ngd7d")
 
-[node name="Marker3D" type="Marker3D" parent="Table1/Sofa_Right/Seat_Left"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.84721375, -0.08048782, -0.092681885)
+[node name="Marker3D" type="Marker3D" parent="Table_1/Sofa_Right/Seat_Left"]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.7619169, -0.08048782, -0.092681885)
+
+[node name="Label3D" type="Label3D" parent="Table_1/Sofa_Right/Seat_Left"]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.1894629, 1.6715981, -0.5656605)
+visible = false
+billboard = 1
+text = "Ready to Order"
+
+[node name="Ticket_Board" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77, 2.114, -5.98)
+
+[node name="Paintings" type="MeshInstance3D" parent="Ticket_Board"]
+transform = Transform3D(-3.268474e-08, 0, 0.7477397, 0, 0.7477396, 0, -0.7477397, 0, -3.268474e-08, -0.00037121773, -1.6212463e-05, 0.00046920776)
+mesh = SubResource("ArrayMesh_7l1fp")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ticket_Board"]
+collision_layer = 2
+script = ExtResource("32_03yd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ticket_Board/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062713623, 0, -0.043777466)
+shape = SubResource("BoxShape3D_b1slh")

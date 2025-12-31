@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://diyauui6c2joo"]
+[gd_scene load_steps=3 format=3 uid="uid://diyauui6c2joo"]
 
 [ext_resource type="PackedScene" uid="uid://ds5xpgt7mxyt8" path="res://models2/All.dae" id="1_libo4"]
+[ext_resource type="PackedScene" uid="uid://c72bqb5gf2q7g" path="res://models3/models.fbx" id="2_q146f"]
 
 [node name="All" instance=ExtResource("1_libo4")]
+
+[node name="models" parent="." index="594" instance=ExtResource("2_q146f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.96057, 0, 15.384052)

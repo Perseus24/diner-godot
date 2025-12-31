@@ -1,4 +1,5 @@
 extends NPCBase
+@onready var interactable = $InteractableComponent
 
 func load_story():
 	print("loading story")
@@ -43,10 +44,16 @@ func _ready():
 	super._ready()
 	print("john smith")
 	animation_player.animation_finished.connect(_on_animation_finished)
+	interactable.interacted.connect(_on_interacted)
 
 func _on_animation_finished(anim_name):
 	if anim_name == "HumanArmature|Man_Walk":
 		animation_player.play("HumanArmature|Man_Walk")
+		
+func _on_interacted(whom):
+	match current_state:
+		State.WAITING_FOR_WAITER:
+			change_state(State.PLACING_ORDER)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

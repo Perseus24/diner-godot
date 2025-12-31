@@ -14,7 +14,6 @@ func interact(interactor):
 	interacted.emit(interactor)
 	print("[Interactable] ", name, " was interacted with")
 
-
 func get_interaction_text() -> String:
 	return interaction_text
 

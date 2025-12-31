@@ -37,10 +37,6 @@ func _ready():
 func _physics_process(delta):
 	check_for_interactable()
 	
-	# Debug visualization
-	if debug_draw:
-		draw_debug_line()
-
 func _input(event):
 	if event.is_action_pressed(interaction_key):
 		attempt_interact()
@@ -53,7 +49,6 @@ func check_for_interactable():
 		var collider = ray_cast.get_collider()
 		# Check if collider or its parent is interactable
 		var interactable = find_interactable_in_hierarchy(collider)
-		
 		if interactable and interactable.can_be_interacted():
 			current_interactable = interactable
 			
@@ -66,11 +61,26 @@ func check_for_interactable():
 		clear_interactable(previous_interactable)
 
 func find_interactable_in_hierarchy(node):
-	var current = node
+	# Check the node itself first
+	if node is Interactable:
+		return node
+	
+	# Check children (and their children recursively)
+	for child in node.get_children():
+		if child is Interactable:
+			return child
+		# Check grandchildren
+		var found = find_interactable_in_hierarchy(child)
+		if found:
+			return found
+	
+	# Check parents
+	var current = node.get_parent()
 	while current:
 		if current is Interactable:
 			return current
 		current = current.get_parent()
+	
 	return null
 
 func clear_interactable(previous):
@@ -95,6 +105,5 @@ func has_interactable() -> bool:
 	return current_interactable != null
 
 func draw_debug_line():
-	# This would use DebugDraw or ImmediateMesh
-	# Simplified example
+	
 	pass
