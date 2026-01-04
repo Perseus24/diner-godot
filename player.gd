@@ -7,6 +7,8 @@ var mouse_sensitivity = 0.002
 var interact_distance = 3.0  # How far can player reach?
 var current_interactable = null  # What are we looking at?
 
+var movement_restricted = false
+
 # Get camera reference
 @onready var camera = $Camera3D
 @onready var pointer: Label = get_node("../UserInterface/Pointer")
@@ -25,6 +27,8 @@ func _on_interaction_unavailable():
 	print("No interactable nearby")
 	
 func _physics_process(delta):
+	if movement_restricted:
+		return
 	# Get input from WASD or Arrow keys
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	

@@ -15,6 +15,10 @@ run/main_scene="uid://bnsa68vfnk2g"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 player=""
@@ -24,6 +28,9 @@ entrance_door=""
 sofa=""
 seat=""
 Table1_Sofa_Right_path_entrance=""
+cash_register=""
+Table_1_To_Counter=""
+door_chime=""
 
 [input]
 

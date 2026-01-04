@@ -16,7 +16,6 @@ func interact(interactor = null):
 	print("Interact called, emitting signal")
 	PlayerItems.attach_node_to_player(self.get_parent(), Vector3(0.996, -0.48, -1.252), 2, -11.5, 0, false)
 	
-	var board = get_parent().get_parent()
 	#ticket_picked_up.connect(board.handle_ticket_picked_up)
 	#ticket_picked_up.emit(self.get_parent())
 	

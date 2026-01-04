@@ -32,6 +32,9 @@ func open_door():
 	can_interact = false
 	anim_player.play("door_open")
 	
+	var chime = get_tree().get_first_node_in_group("door_chime")
+	chime.play()
+	
 	can_interact = true
 	update_interaction_text()
 	
@@ -46,6 +49,9 @@ func close_door():
 	is_open = false
 	can_interact = false
 	anim_player.play("door_close")
+	
+	var chime = get_tree().get_first_node_in_group("door_chime")
+	chime.play()
 	
 	can_interact = true
 	update_interaction_text()

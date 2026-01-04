@@ -6,6 +6,8 @@ var is_cooked_half = false
 var is_cooked_full = false
 var is_cooking = false
 
+signal item_picked_up(patty)
+
 func _ready() -> void:
 	update_interaction_text()
 	pass 
@@ -60,7 +62,10 @@ func get_patty():
 	var spatula = get_tree().get_first_node_in_group("spatula")
 	if spatula:
 		spatula.get_node_or_null("Cube_223").visible = true
-	get_parent().queue_free()
+		
+	var parent = get_parent().get_parent()
+	item_picked_up.connect(parent.item_picked_up)
+	item_picked_up.emit(self.get_parent())
 	
 func update_interaction_text():
 	interaction_text = "Burger Patty"

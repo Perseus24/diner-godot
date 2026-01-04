@@ -18,7 +18,7 @@ static func attach_item_to_player(item_scene: PackedScene, offset: Vector3, node
 	var player = tree.get_first_node_in_group("player")
 	var camera = player.get_node('Camera3D')
 	# make the item a child of the camera so it always follow
-	var mesh = item.get_node(node_name)
+	var mesh = item.get_node_or_null(node_name)
 	if mesh:
 			
 		mesh.reparent(camera)
@@ -26,8 +26,7 @@ static func attach_item_to_player(item_scene: PackedScene, offset: Vector3, node
 		
 	item.queue_free()
 	
-# if its a node, just reparent it. dont instantiate
-# currently, this is being used by the ticket scene
+# if its a node,
 static func attach_node_to_player(node: Node3D,  offset: Vector3, rotation_y: int = 0, rotation_x: int = 0, rotation_z: int = 0, is_instantiate = true):
 	var tree = Engine.get_main_loop() as SceneTree
 	var player = tree.get_first_node_in_group("player")
@@ -36,15 +35,13 @@ static func attach_node_to_player(node: Node3D,  offset: Vector3, rotation_y: in
 	print("node from attach player")
 	print(node)
 	if node:
-		for child in node.get_children():
-			if child is StaticBody3D:
-				child.get_node("CollisionShape3D").disabled = true
+		for child in node.find_children("*", "StaticBody3D", true):
+			child.get_node("CollisionShape3D").disabled = true
 		
 		if is_instantiate:
 			camera.add_child(node)
 		else:
 			node.reparent(camera)
-		camera.print_tree()
 		node.position = offset
 		if rotation_x != 0:
 			node.rotation.y = deg_to_rad(rotation_y)

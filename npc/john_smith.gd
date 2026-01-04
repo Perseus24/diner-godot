@@ -22,7 +22,7 @@ func load_story():
 	favorite_food = "Pasta"
 	base_walking_speed = 1.5
 	menu_reading_time = 1
-	eating_duration = 30
+	eating_duration = 1 #30
 	
 	setup_special_behaviors()
 	
@@ -33,7 +33,7 @@ func setup_special_behaviors():
 
 func generate_order():
 	var base_order = {
-		"item": "Burger",
+		"items": ["Burger"],
 		"special_requests": ["Double Meat"],
 		"tip_percentage": 20
 	}
@@ -54,6 +54,9 @@ func _on_interacted(whom):
 	match current_state:
 		State.WAITING_FOR_WAITER:
 			change_state(State.PLACING_ORDER)
+		State.WAITING_FOR_FOOD:
+			place_food_to_table()
+			
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

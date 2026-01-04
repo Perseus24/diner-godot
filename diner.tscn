@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bbn02mg4qxefh"]
+[gd_scene load_steps=18 format=4 uid="uid://bbn02mg4qxefh"]
 
 [ext_resource type="PackedScene" uid="uid://cb2hvrwhcc24i" path="res://models/DINER.fbx" id="1_4ugta"]
 [ext_resource type="Texture2D" uid="uid://d3v7euv1k76c3" path="res://textures/Textures/Metal_03.jpg" id="16_sg24b"]
 [ext_resource type="Texture2D" uid="uid://b4bv4b3fpkbjs" path="res://textures/Textures/Metal_01.jpg" id="19_g7v78"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dfvbq"]
+size = Vector3(0.027404785, 0.005235672, 0.05027771)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kv5k"]
 resource_name = "Metal_03"
@@ -110,6 +113,21 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 1.74
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1acga"]
+size = Vector3(0.2841797, 4.3296204, 0.8741455)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrcc7"]
+size = Vector3(9.793396, 4.2686157, 0.583374)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajhu4"]
+size = Vector3(0.36187744, 4.351166, 3.8890991)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_thwum"]
+size = Vector3(7.7177734, 3.9180908, 0.4423828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ugta"]
+size = Vector3(2.90271, 3.7453003, 0.44909668)
+
 [node name="DINER" instance=ExtResource("1_4ugta")]
 
 [node name="Background" parent="." index="0"]
@@ -129,6 +147,9 @@ transform = Transform3D(98.64281, 0, 0, 0, -1.825924e-07, 99.99999, 0, -1.531696
 
 [node name="Chair_02" parent="." index="39"]
 visible = false
+
+[node name="Chair_03" parent="." index="40"]
+transform = Transform3D(75.53759, 0, 0, 0, -9.004782e-06, 75.53758, 0, -75.53758, -9.004782e-06, 0.53505147, -0.093955755, -3.4102936)
 
 [node name="Coffee_machine" parent="." index="41"]
 transform = Transform3D(-107.9625, 9.438381e-06, 4.1256476e-13, 0, -4.7191907e-06, 107.9625, 9.438381e-06, 107.962494, 4.7191907e-06, -2.9484482, 1.5487596, -4.397403)
@@ -155,6 +176,12 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 
 [node name="Entry" parent="." index="82"]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.8201388, 1.9735644, 6.506627)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Entry" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entry/StaticBody3D" index="0"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, -0.0015564454, -0.00036162883, -0.0051651895)
+shape = SubResource("BoxShape3D_dfvbq")
 
 [node name="Glass" parent="." index="89"]
 visible = false
@@ -198,6 +225,7 @@ visible = false
 
 [node name="lemons_03" parent="." index="119"]
 transform = Transform3D(-8.004502, 3.1120135e-06, -0.08480405, -0.08480405, 5.1012944e-07, 8.004502, 3.117243e-06, 8.0049515, -9.542646e-07, 3.8490107, 1.0695744, 6.7880497)
+visible = false
 
 [node name="lemons_07" parent="." index="123"]
 transform = Transform3D(8.0049515, 0, 0, 0, -9.542646e-07, 8.004951, 0, -8.004951, -9.542646e-07, -1.2475798, 1.2089189, -4.120161)
@@ -241,6 +269,7 @@ transform = Transform3D(-104.79893, 0, 0, 0, 4.3711384e-06, 99.99999, 0, -99.999
 
 [node name="POPCORN" parent="." index="213"]
 transform = Transform3D(-4.371139e-06, 99.99999, 4.3711384e-06, 0, -4.3711384e-06, 99.99999, 100, 4.3711384e-06, 1.9106853e-13, 6.1802106, 1.3662696, -4.361756)
+visible = false
 
 [node name="R_V" parent="." index="214"]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1.8086529, 0.59519845, -7.1378775)
@@ -268,6 +297,12 @@ transform = Transform3D(60.282074, 0, 0, 0, -7.186183e-06, 60.28207, 0, -60.2820
 
 [node name="Sauce_02" parent="." index="237"]
 transform = Transform3D(60.282074, 0, 0, 0, -7.186183e-06, 60.28207, 0, -60.28207, -7.186183e-06, -1.3503821, 1.2526987, -4.386444)
+
+[node name="Sauce_09" parent="." index="244"]
+visible = false
+
+[node name="Sauce_10" parent="." index="245"]
+visible = false
 
 [node name="Sauce_15" parent="." index="250"]
 visible = false
@@ -300,8 +335,52 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 [node name="Window_frame_04" parent="." index="300"]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 9.371536, 1.9552536, 7.396225)
 
+[node name="Grass" parent="." index="309"]
+visible = false
+
 [node name="DINER_Collision" parent="." index="310"]
 visible = false
 
 [node name="Fence_Collision" parent="." index="311"]
 visible = false
+
+[node name="Entry_2" type="Node3D" parent="." index="312"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55716383, 0, 4.4594355)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Entry_2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entry_2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103027344, 1.6648102, -0.062927246)
+shape = SubResource("BoxShape3D_1acga")
+
+[node name="Wall_Front_R" type="Node3D" parent="." index="313"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1106415, 0, 7.3398323)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall_Front_R" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Front_R/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26004028, 1.6343079, 0.1305542)
+shape = SubResource("BoxShape3D_mrcc7")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Wall_Front_R" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0032587, 0, -2.0157743)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Front_R/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028167725, 1.6755829, 0.36447144)
+shape = SubResource("BoxShape3D_ajhu4")
+
+[node name="Kitchen_Wall_Front" type="Node3D" parent="." index="314"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.856022)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Kitchen_Wall_Front" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen_Wall_Front/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4453125, 1.4590454, -0.063964844)
+shape = SubResource("BoxShape3D_thwum")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Kitchen_Wall_Front" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4407177, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen_Wall_Front/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17462158, 1.3726501, -0.089416504)
+shape = SubResource("BoxShape3D_4ugta")

@@ -18,8 +18,9 @@ func interact(interactor=null):
 	var camera = player.get_node('Camera3D')
 	
 	if is_picked_up:
-		var mesh = camera.get_node("Cube_223")
-		mesh.queue_free()
+		var mesh = camera.get_node_or_null("Cube_223")
+		if mesh:
+			mesh.queue_free()
 		
 		$"../Cube_223".visible = true
 		is_picked_up = false

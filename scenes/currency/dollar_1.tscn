@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=4 uid="uid://6tiyqytfua6b"]
+
+[ext_resource type="Texture2D" uid="uid://bnsip3r1p4cum" path="res://scenes/currency/us_money_0.jpg" id="1_ljpl4"]
+[ext_resource type="Texture2D" uid="uid://b61eg3uvtpf8i" path="res://scenes/currency/us_money_1.png" id="2_2x2k6"]
+[ext_resource type="Texture2D" uid="uid://cdsprj4vv7yjy" path="res://scenes/currency/us_money_2.jpg" id="3_vr0nt"]
+[ext_resource type="Texture2D" uid="uid://gyovnn8bdpfx" path="res://scenes/currency/us_money_3.png" id="4_kj2nc"]
+[ext_resource type="Texture2D" uid="uid://cp1jexwdaglu5" path="res://scenes/currency/us_money_4.jpg" id="5_kxhfn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhsor"]
+resource_name = "02_-_Default"
+cull_mode = 2
+albedo_texture = ExtResource("1_ljpl4")
+metallic = 1.0
+roughness = 0.89297134
+normal_enabled = true
+normal_texture = ExtResource("2_2x2k6")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cwrj6"]
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 0, 1740, 735, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "02_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AIBZxADAt8MAAAAAAIBZRADAt0MAAAAAAIBZxADAt0MAAAAAAIBZRADAt8MAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_td1g6"]
+resource_name = "Sketchfab_Scene_One Dollar Bill_02 - Default_0"
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 0, 1740, 735, 1e-05),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAA="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_hhsor"),
+"name": "02_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AIBZxADAt8MAAAAAAIBZRADAt0MAAAAAAIBZxADAt0MAAAAAAIBZRADAt8MAAAAA/////wAA/7//////AAD/v/////8AAP+//////wAA/78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cwrj6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2ojr"]
+resource_name = "01_-_Default"
+cull_mode = 2
+albedo_texture = ExtResource("3_vr0nt")
+metallic = 1.0
+roughness = 0.89297134
+normal_enabled = true
+normal_texture = ExtResource("4_kj2nc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ywa1i"]
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 12.107101, 1740, 735, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "01_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD/////AAAAAP//AAAAAAAAAAD//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e7w1d"]
+resource_name = "Sketchfab_Scene_One Dollar Bill_01 - Default_0"
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 12.107101, 1740, 735, 1e-05),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_b2ojr"),
+"name": "01_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAID/////AAAAgP//AAAAAACAAAD//wAAAID/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ywa1i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqk4j"]
+resource_name = "03_-_Default"
+cull_mode = 2
+albedo_texture = ExtResource("5_kxhfn")
+metallic = 1.0
+roughness = 0.89297134
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3vbkk"]
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 0, 1740, 735, 12.107101),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAHAAQABQAHAAYA"),
+"name": "03_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAA////////AAAAAAAA//8AAP////8AAAAAAAD//wAAAAAAAP////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3jdvc"]
+resource_name = "Sketchfab_Scene_One Dollar Bill_03 - Default_0"
+_surfaces = [{
+"aabb": AABB(-870, -367.5, 0, 1740, 735, 12.107101),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//wAAAAD///////8AAAAA//8AAAAA////////AAAAAP//AAAAAP///////wAAAAD//w=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_gqk4j"),
+"name": "03_-_Default",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAA/z///wAA////P///AAAAAP8/AAAAAP///z///wAAAACqKv///////6oq/////wAAqir//wAA//+qKv////8AAAAAAAD/////AAAAAP//AAAAAP///////wAAAAD//wAAqioAAAAA//+qKgAAAAAAAKoqAAD/////qioAAP9/AAD/fwAA/38AAP9/qiqqKqoqqiqqKqoqqiqqKv9//7//f/+//3//v/9//79UVaqqVFWqqlRVqqpUVaqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3vbkk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljpl4"]
+size = Vector3(87.29697, 0.597668, 37.462616)
+
+[node name="Dollar1" type="Node3D"]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)
+
+[node name="One Dollar Bill" type="Node3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, 0.012, 0, -0.05, -5.2453664e-10, 0, 0, 0)
+
+[node name="One Dollar Bill_02 - Default_0" type="MeshInstance3D" parent="One Dollar Bill"]
+mesh = SubResource("ArrayMesh_td1g6")
+skeleton = NodePath("")
+
+[node name="One Dollar Bill_01 - Default_0" type="MeshInstance3D" parent="One Dollar Bill"]
+mesh = SubResource("ArrayMesh_e7w1d")
+skeleton = NodePath("")
+
+[node name="One Dollar Bill_03 - Default_0" type="MeshInstance3D" parent="One Dollar Bill"]
+mesh = SubResource("ArrayMesh_3jdvc")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08772278, 0.15563962, 0.11579895)
+shape = SubResource("BoxShape3D_ljpl4")

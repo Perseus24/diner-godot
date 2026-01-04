@@ -14,7 +14,7 @@ enum State {
 	WAITING_FOR_FOOD,
 	EATING,
 	IDLE,
-	STANDING_UP,
+	WALKING_TO_COUNTER,
 	WALKING_TO_EXIT,
 	OPENING_EXIT_DOOR,
 	WALKING_OUTSIDE,
@@ -70,6 +70,9 @@ var order_data: Dictionary = {}
 var chosen_seat_to = null
 var is_sitting = false
 var has_placed_order = false
+var is_waiting_for_order = false
+var is_eating = false
+var is_walking_to_counter = false
 
 @onready var camera: Camera3D = $Camera3D
 @onready var animation_player: AnimationPlayer = $Male_Casual/AnimationPlayer
@@ -86,6 +89,9 @@ func _ready() -> void:
 	print("[NPC] ", character_first_name, " has entered the scene")
 
 func load_story(): #override
+	pass
+	
+func generate_order(): #override
 	pass
 	
 func setup_interaction_system():
@@ -105,43 +111,43 @@ func start_routine():
 func _physics_process(delta: float) -> void:
 	match current_state:
 		State.IDLE:
-			process_idle(delta)
+			process_idle()
 		
 		State.WALKING_TO_ENTRANCE:
 			process_walking_to_entrance(delta)
 			
 		State.OPENING_ENTRANCE_DOOR:
-			process_opening_door(delta)
+			process_opening_door()
 			
 		State.WAITING_FOR_DOOR:
 			pass
 			#
 		State.LOOKING_FOR_CHAIR:
-			process_looking_for_chair(delta)
+			process_looking_for_chair()
 			#
 		State.WALKING_TO_CHAIR:
-			process_walking_to_chair(delta)
+			process_walking(delta)
 			#
 		State.SITTING_DOWN:
-			process_sitting_down(delta)
+			process_sitting_down()
 			#
 		State.READING_MENU:
 			process_reading_menu()
 			#
 		State.WAITING_FOR_WAITER:
-			process_waiting_for_waiter(delta)
+			process_waiting_for_waiter()
 		#
 		State.PLACING_ORDER:
-			process_placing_order(delta)
+			process_placing_order()
 			#
-		#State.WAITING_FOR_FOOD:
-			#process_waiting_for_food(delta)
+		State.WAITING_FOR_FOOD:
+			process_waiting_for_food()
 		#
-		#State.EATING:
-			#process_eating(delta)
+		State.EATING:
+			process_eating()
 			#
-		#State.STANDING_UP:
-			#process_standing_up(delta)
+		State.WALKING_TO_COUNTER:
+			process_walking(delta)
 		#
 		#State.WALKING_TO_EXIT:
 			#process_walking_to_exit(delta)
@@ -159,7 +165,7 @@ func _physics_process(delta: float) -> void:
 			#process_random_events(delta)
 	#check_interaction()
 	
-func process_idle(delta):
+func process_idle():
 	pass
 	
 func change_state(new_state):
@@ -209,7 +215,7 @@ func process_walking_to_entrance(delta):
 			current_path_follow = null
 			change_state(State.OPENING_ENTRANCE_DOOR)
 			
-func process_opening_door(delta):
+func process_opening_door():
 	# Look for door
 	if !current_interactable:
 		var doors = get_tree().get_nodes_in_group("entrance_door")
@@ -229,7 +235,7 @@ func process_opening_door(delta):
 		
 		change_state(State.LOOKING_FOR_CHAIR)
 		
-func process_looking_for_chair(delta):
+func process_looking_for_chair():
 	# Get all chairs
 	var seats = get_tree().get_nodes_in_group("seat")
 	var available_seats = []
@@ -257,17 +263,23 @@ func process_looking_for_chair(delta):
 		# Try again or leave frustrated
 		change_state(State.WALKING_TO_EXIT)
 		
-func process_walking_to_chair(delta):
+func process_walking(delta):
 	if current_path_follow:
+		print("process walking")
 		animation_player.play("HumanArmature|Man_Walk")
 		follow_current_path(delta)
+		print(current_path_follow.progress_ratio)
 		if current_path_follow.progress_ratio >= 1:
-			print("[NPC] ", character_first_name, " reached seat")
 			animation_player.stop()
 			current_path_follow = null
-			change_state(State.SITTING_DOWN)
+			
+			match current_state:
+				State.WALKING_TO_CHAIR:
+					change_state(State.SITTING_DOWN)
+				State.WALKING_TO_COUNTER:
+					print("reached the counter")
 		
-func process_sitting_down(delta):
+func process_sitting_down():
 	
 	var target_seat = chosen_seat_to
 	var sit_marker = target_seat.get_sit_position()
@@ -279,7 +291,6 @@ func process_sitting_down(delta):
 	is_sitting = true
 	
 	# Get animation length
-	var anim = animation_player.get_animation("HumanArmature|Man_Sitting")
 	await animation_player.animation_finished
 	if is_sitting:
 		animation_player.seek(0.6, true)
@@ -294,28 +305,60 @@ func process_reading_menu():
 		label_ready_to_order.visible = true
 	change_state(State.WAITING_FOR_WAITER)
 	
-func process_waiting_for_waiter(delta):
+func process_waiting_for_waiter():
 	print("[NPC] ", character_first_name, " is waiting for waiter")
 	
-func process_placing_order(delta):
+func process_placing_order():
 	if has_placed_order:
 		return
+		
 	has_placed_order = true
 	print("[NPC] ", character_first_name, " is placing order")
-	var player = get_tree().get_first_node_in_group("player")
-	var camera = player.get_node("Camera3D")
 	var ticket = ticket_scene.instantiate()
 	
+	generate_order()
 	if ticket:
 		var seat_position_name = chosen_seat_to.name # Seat Left
 		var sofa_name = chosen_seat_to.get_parent().name # Sofa_Right
 		var table_name = chosen_seat_to.get_parent().get_parent().name # Table_1
 		var temp_number = sofa_name + "_" + seat_position_name
 		
-		ticket.get_node("TableNumber").text = "Table " + str(table_name.split("_")[1]) + " Seat " + str(determine_table_number(temp_number)) 
+		#generate and attach the ticket with the order
+		ticket.get_node("TableNumber").text = "Table " + str(table_name.split("_")[1]) + " Seat " + str(determine_table_number(temp_number))
+		ticket.get_node("OrderItem").text = "\n".join(order_data.items)
 		PlayerItems.attach_node_to_player(ticket, Vector3(0.996, -0.48, -1.252), 2, -11.5, 0)
+	
+	# turn off the ready for order label
+	var label_ready_to_order = chosen_seat_to.get_node_or_null("Label3D")
+	label_ready_to_order.visible = false
+	change_state(State.WAITING_FOR_FOOD)
+	
+func process_waiting_for_food():
+	if is_waiting_for_order:
+		return
 		
-		
+	is_waiting_for_order = true
+	print("[NPC] ", character_first_name, " is waiting for order")
+	
+func process_eating():
+	if is_eating:
+		return
+	
+	is_eating = true
+	await get_tree().create_timer(eating_duration).timeout #wait for the npc to eat
+	is_eating = false
+	
+	var table_name = chosen_seat_to.get_parent().get_parent().name # Table_1
+	var path_name = str(table_name) + "_To_Counter"
+	var path_to_counter = get_tree().get_first_node_in_group(path_name)
+	
+	current_path_follow = path_to_counter.get_node("PathFollow3D")
+	current_path_follow.progress = 0.0
+	change_state(State.WALKING_TO_COUNTER)
+	
+func process_walking_to_counter(delta):
+	print("[NPC] ", character_first_name, " is walking to counter")
+	
 	
 func find_path_to_chair(seat):
 	var seat_position_name = seat.name # Seat Left
@@ -335,7 +378,31 @@ func determine_table_number(position):
 			return 3
 		"Sofa_Right_Seat_Left":
 			return 4
+
+func place_food_to_table():
+	print("Placing food")
+	var order_items = order_data.items
+	if order_items.size() == 1:
+		var plate_position_node = chosen_seat_to.get_node("Plates_Position")
+		var plate_marker = plate_position_node.get_node("Marker_Main_Plate")
 		
+		var camera = get_player_camera()
+		var food = camera.get_node_or_null("Plain_Burger") # make this dynamic to match items with their names
+		if food:
+			food.reparent(plate_position_node)
+			
+			food.rotation = Vector3.ZERO
+			food.scale = Vector3.ONE
+			food.position = plate_marker.position
+			
+	change_state(State.EATING)
+
+
+
+
+func get_player_camera():
+	var player = get_tree().get_first_node_in_group("player")
+	return player.get_node("Camera3D")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

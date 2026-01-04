@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbigt4bikf1so"]
+
+[ext_resource type="PackedScene" uid="uid://bmjufp7ioahfu" path="res://plate.tscn" id="1_ugtdv"]
+[ext_resource type="PackedScene" uid="uid://d2ovdqku5pkk8" path="res://burger_plain.tscn" id="2_au6al"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugtdv"]
+size = Vector3(0.37026978, 0.17834473, 0.3670044)
+
+[node name="Plain_Burger" type="Node3D"]
+
+[node name="Plate" parent="." instance=ExtResource("1_ugtdv")]
+
+[node name="Burger_Plain" parent="." instance=ExtResource("2_au6al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047537055, 0.060601562, 0.069318056)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05052185, 0.0647583, 0.07254028)
+shape = SubResource("BoxShape3D_ugtdv")

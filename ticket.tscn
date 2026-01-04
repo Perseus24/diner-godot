@@ -29,7 +29,7 @@ size = Vector3(0.3182373, 0.51379395, 0.19204712)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0045278966)
 mesh = SubResource("QuadMesh_aiqyg")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="OrderItem" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05706328, 0.07620415, 0)
 text = "Burger"
 font = SubResource("FontFile_aiqyg")

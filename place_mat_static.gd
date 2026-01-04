@@ -2,9 +2,15 @@ extends Interactable
 
 @onready var plate_scene = preload("res://plate.tscn")
 @onready var burger_plain_scene = preload("res://burger_plain.tscn")
+
+@onready var burger_plain_complete_scene = preload("res://scenes/complete_orders/plain_burger_complete.tscn")
+
+const PlayerItems = preload("res://scripts/item_manager.gd")
+
 var is_plate_placed = false
 var is_patty_placed = false
 var is_bun_placed = false
+var complete_order = null
 
 func _ready() -> void:
 	update_interaction_text()
@@ -15,6 +21,24 @@ func _process(delta: float) -> void:
 	pass
 
 func interact(interactor=null):
+	if complete_order != null:
+		match complete_order:
+			"plain_burger":
+				var burger_plain_node = burger_plain_complete_scene.instantiate()
+				PlayerItems.attach_node_to_player(burger_plain_node, Vector3(0.3, -0.3, -0.6))
+				
+				#delete the made plate
+				for child in self.get_children():
+					if child is CollisionShape3D:
+						continue
+					child.queue_free()
+					
+				is_plate_placed = false
+				is_patty_placed = false
+				is_bun_placed = false
+				complete_order = null
+		return
+		
 	var player = get_tree().get_first_node_in_group("player")
 	var camera = player.get_node('Camera3D')
 	
@@ -54,8 +78,11 @@ func make_burger():
 	
 	burger_plain.position = Vector3(0, 0.05, 0)
 	#remove other ingredients
+	self.print_tree()
 	get_node("Sketchfab_Scene").queue_free()
 	get_node("Roast_meat").queue_free()
+	
+	complete_order = 'plain_burger'
 	
 func update_interaction_text():
 	interaction_text = "Placemat"
