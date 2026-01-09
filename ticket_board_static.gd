@@ -1,5 +1,4 @@
 extends Interactable
-@onready var ticket_scene = preload("res://ticket.tscn")
 
 func _ready() -> void:
 	update_interaction_text()
@@ -32,7 +31,6 @@ func interact(interactor = null):
 		ticket_item.global_rotation.x = deg_to_rad(1)
 		
 		#ticket_item.queue_free()
-	print_tree_pretty()
 	
 	super.interact(interactor)
 
