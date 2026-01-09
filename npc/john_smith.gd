@@ -50,6 +50,7 @@ func _on_animation_finished(anim_name):
 	if anim_name == "HumanArmature|Man_Walk":
 		animation_player.play("HumanArmature|Man_Walk")
 		
+# when interacted by a character
 func _on_interacted(whom):
 	match current_state:
 		State.WAITING_FOR_WAITER:

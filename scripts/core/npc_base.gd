@@ -24,6 +24,7 @@ enum State {
 const PlayerItems = preload("res://scripts/item_manager.gd")
 
 @onready var ticket_scene = preload("res://ticket.tscn")
+@onready var plate_scene = preload("res://plate.tscn")
 
 # SIGNALS
 
@@ -348,6 +349,22 @@ func process_eating():
 	await get_tree().create_timer(eating_duration).timeout #wait for the npc to eat
 	is_eating = false
 	
+	#leave plate in the table
+	var plates_in_the_table = chosen_seat_to.get_node("Plates_Position")
+	var food = plates_in_the_table.get_node_or_null("Plain_Burger")
+	
+	if food:
+		print("there is food in the table")
+		
+		var plate = plate_scene.instantiate()
+		plates_in_the_table.add_child(plate) #leave plate
+		plate.position = food.position
+		
+		food.queue_free()
+		
+	else:
+		print("no food")
+	# walk npc to counter after eating
 	var table_name = chosen_seat_to.get_parent().get_parent().name # Table_1
 	var path_name = str(table_name) + "_To_Counter"
 	var path_to_counter = get_tree().get_first_node_in_group(path_name)
@@ -359,11 +376,7 @@ func process_eating():
 func process_walking_to_counter(delta):
 	print("[NPC] ", character_first_name, " is walking to counter")
 	
-	
 func find_path_to_chair(seat):
-	var seat_position_name = seat.name # Seat Left
-	var sofa_name = seat.get_parent().name # Sofa_Right
-	var table_name = seat.get_parent().get_parent().name # Table1
 	
 	if current_state == State.LOOKING_FOR_CHAIR:
 		return get_tree().get_first_node_in_group("Table1_Sofa_Right_path_entrance")
@@ -381,6 +394,8 @@ func determine_table_number(position):
 
 func place_food_to_table():
 	print("Placing food")
+	is_waiting_for_order = false
+	
 	var order_items = order_data.items
 	if order_items.size() == 1:
 		var plate_position_node = chosen_seat_to.get_node("Plates_Position")
@@ -403,6 +418,7 @@ func place_food_to_table():
 func get_player_camera():
 	var player = get_tree().get_first_node_in_group("player")
 	return player.get_node("Camera3D")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
